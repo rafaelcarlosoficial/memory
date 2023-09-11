@@ -1,0 +1,322 @@
+@font-face {
+  font-family: "Ice cold beer";
+  src: url(../fonts/Ice\ cold\ beer.ttf);
+}
+
+:root {
+  /* colors */
+  --black: #020000;
+  --brown: #1c1713;
+  --light-blue: #b0e0e6;
+  --orange: #f93f04;
+  --white: #ffffff;
+
+  /* fonts */
+  --font-family-Ice-cold-beer: "Ice cold beer", helvetica, arial, sans-serif;
+
+  /* font-size */
+  --fontSize-title-1: 6rem;
+  --fontSize-title-2: 3.75rem;
+  --fontSize-title-3: 3.12rem;
+  --fontSize-title-4: 2.18rem;
+  --fontSize-title-5: 2.1rem;
+
+  /* border-radius */
+  --border-radius-1: 46px;
+  --border-radius-2: 37px;
+}
+
+* {
+  margin: 0px;
+  padding: 0px;
+  font-family: var(--font-family-Ice-cold-beer);
+  box-sizing: border-box;
+}
+a,
+span,
+p,
+h1,
+h2,
+h3,
+button {
+  color: var(--brown);
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+}
+h2 {
+  font-size: var(--fontSize-title-2);
+  text-align: center;
+}
+.btn {
+  background-color: var(--orange);
+  border: none;
+  font-size: var(--fontSize-title-3);
+  color: var(--white);
+  padding: 0.1rem 2.6rem;
+  border-radius: var(--border-radius-1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.border-player-one,
+.border-player-two {
+  border-radius: var(--border-radius-2);
+  border: 7px solid;
+}
+.border-player-one {
+  border-color: var(--brown);
+}
+
+.border-player-two {
+  border-color: var(--light-blue);
+}
+
+.player-title {
+  display: grid;
+  grid-template-rows: auto 10rem;
+  align-items: center;
+  margin: 0rem 3rem;
+}
+
+.player-photo-name {
+  display: flex;
+  align-items: center;
+}
+
+.player-photo-name img,
+.player-photo-name p {
+  margin-right: 1.7rem;
+}
+
+.animal-text {
+  font-size: var(--fontSize-title-3);
+}
+.align-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* login-scrren */
+.title-and-players {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 3.5rem;
+}
+
+.memory-game-title {
+  font-size: var(--fontSize-title-1);
+  margin-bottom: 7rem;
+}
+
+.btn-login {
+  background-color: var(--brown);
+  border-radius: var(--border-radius-2);
+  border: none;
+}
+
+.icon-login {
+  color: var(--white);
+  font-size: 3.5em;
+  padding: 1.5rem;
+}
+
+.text-player {
+  font-size: var(--fontSize-title-3);
+  margin-left: 1rem;
+}
+
+.players {
+  text-align: center;
+}
+
+.container-description {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 100px;
+}
+
+.player-description {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* two-players */
+.container-two-players {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* player-column */
+
+.container-animal {
+  text-align: center;
+}
+
+#left {
+  float: left;
+}
+#right {
+  float: right;
+}
+
+/* choice-animal */
+.choice-animal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.animals {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 1.5rem;
+  background-color: var(--brown);
+  border: 1.5rem solid var(--brown);
+  border-radius: var(--border-radius-2);
+}
+
+.animals img {
+  border-radius: var(--border-radius-2);
+}
+
+/* one-player */
+.container-one-player {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+}
+
+/* game-1-play */
+.container-memory-game {
+  display: flex;
+  gap: 2rem;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.memory-game {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  gap: 0.5rem 3rem;
+  border: 7px solid var(--orange);
+  background: url(../images/memory-game-background.jpg);
+  background-size: cover;
+  padding: 2rem;
+}
+
+.hit-cards {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 1px;
+}
+.card {
+  transform: scale(80%);
+}
+
+.hit-card-memory {
+  display: grid;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* game-2-play */
+.container-memory-game-two {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-content: center;
+  align-items: center;
+  margin: 2rem;
+}
+
+.hit-cards-two {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 0px;
+}
+
+.memory-game-two {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  gap: 0.5rem 3rem;
+  border: 7px solid var(--orange);
+  background: url(../images/memory-game-background.jpg);
+  background-size: cover;
+}
+
+/* warning-scrren */
+
+.container-warning-screen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.warning-screen {
+  background-color: var(--black);
+  display: flex;
+  flex-direction: row;
+  gap: 1px;
+  align-items: center;
+  border-radius: var(--border-radius-1);
+  margin-top: 9rem;
+}
+
+.congratulations-message {
+  font-size: var(--fontSize-title-3);
+  color: var(--white);
+}
+
+.marine-animal {
+  color: var(--orange);
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.container-message {
+  padding: 3rem;
+  border-radius: var(--border-radius-1);
+  margin-left: 5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.warning-image {
+  transform: translateX(8rem);
+}
+
+.close-warning {
+  font-size: 4rem;
+  color: var(--orange);
+  float: right;
+}
+
+@media (max-width: 940px) {
+
+}
