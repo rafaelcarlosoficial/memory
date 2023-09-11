@@ -26,6 +26,8 @@
   --border-radius-2: 37px;
 }
 
+
+
 * {
   margin: 0px;
   padding: 0px;
@@ -52,6 +54,10 @@ button {
 h2 {
   font-size: var(--fontSize-title-2);
   text-align: center;
+}
+.img-responsive {
+  max-width: 100%; 
+  height: auto; 
 }
 .btn {
   background-color: var(--orange);
@@ -202,6 +208,9 @@ h2 {
   margin: 0;
 }
 
+.container-hit-cards {
+  display: block;
+}
 /* game-1-play */
 .container-memory-game {
   display: flex;
@@ -210,6 +219,10 @@ h2 {
   align-items: center;
   justify-content: center;
 }
+#decoration-penguim {
+  display: block;
+}
+
 .memory-game {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -223,12 +236,13 @@ h2 {
 
 .hit-cards {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: repeat(2, 1fr);
+  grid-template-columns: repeat(5, auto);
+  grid-template-rows: repeat(2, auto);
   gap: 1px;
 }
 .card {
-  transform: scale(80%);
+  max-width: 100%;
+  height: auto;
 }
 
 .hit-card-memory {
@@ -317,6 +331,56 @@ h2 {
   float: right;
 }
 
-@media (max-width: 940px) {
+@media (max-width: 1200px) {
+  /* game-1-play.html */
+  
+  .memory-game {
+    transform: scale(80%);
+  }
+   /* game-2-play.html */
+   .player-photo-name {
+    flex-direction: column;
+   }
+}
+
+@media (max-width: 1050px) { 
+/* game-1-play.html */
+.memory-game {
+  grid-template-columns: repeat(4, auto);
+  grid-template-rows: repeat(3, auto);
+}
+
+}
+
+@media (max-width: 950px) { 
+/* game-1-play.html */
+.hit-card-memory {
+  margin-left: 4rem;
+}
+
+.hit-cards {
+  grid-template-columns: repeat(3,auto);
+  grid-template-rows: repeat(4, auto);
+  gap: 1px;
+}
+
+.memory-game {
+  gap: 0.5rem 1rem;
+  border: none;
+  background: none;
+  padding: 2rem;
+}
+
+}
+
+@media (max-width: 840px) { 
+  /* game-1-play.html */
+  .container-hit-cards {
+    display: none;
+  }
+  #decoration-penguim {
+    display: none;
+  }
+  
 
 }
