@@ -353,6 +353,12 @@ h2 {
 }
 
 @media (max-width: 950px) { 
+/* two-players */
+.text-player, .animal-text, .btn  {
+  font-size: var(--fontSize-title-4);
+} 
+
+
 /* game-1-play.html */
 .hit-card-memory {
   margin-left: 4rem;
@@ -373,7 +379,9 @@ h2 {
 
 }
 
-@media (max-width: 840px) { 
+@media (max-width: 880px) { 
+  /* two-players */
+  
   /* game-1-play.html */
   .container-hit-cards {
     display: none;
@@ -381,6 +389,7 @@ h2 {
   #decoration-penguim {
     display: none;
   }
+  
   
 
 }
