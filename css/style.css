@@ -137,6 +137,12 @@ h2 {
   border: none;
 }
 
+.btn-login:hover {
+  background-color: var(--orange);
+}
+.text-player > a:hover {
+  color: var(--orange);
+}
 .icon-login {
   color: var(--white);
   font-size: 3.5em;
