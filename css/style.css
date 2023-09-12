@@ -201,6 +201,7 @@ h2 {
 }
 
 .animals {
+  
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
@@ -208,11 +209,16 @@ h2 {
   background-color: var(--brown);
   border: 1.5rem solid var(--brown);
   border-radius: var(--border-radius-2);
+
 }
 
 .animals img {
   border-radius: var(--border-radius-2);
 }
+
+/* .animals img:hover {
+    border: 7px solid var(--black);
+} */
 
 /* one-player */
 .container-one-player {
