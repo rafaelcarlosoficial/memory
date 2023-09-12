@@ -109,6 +109,18 @@ h2 {
   align-items: center;
   justify-content: center;
 }
+.display-game-1-play, 
+.display-game-2-play,
+.display-two-players,
+.display-one-player {
+  display: block;
+}
+.mobile-btn-confirm,
+.mobile-btn-confirm-one {
+  display: none;
+}
+
+
 
 /* login-scrren */
 .title-and-players {
@@ -208,9 +220,8 @@ h2 {
   margin: 0;
 }
 
-.container-hit-cards {
-  display: block;
-}
+
+
 /* game-1-play */
 .container-memory-game {
   display: flex;
@@ -219,9 +230,7 @@ h2 {
   align-items: center;
   justify-content: center;
 }
-#decoration-penguim {
-  display: block;
-}
+
 
 .memory-game {
   display: grid;
@@ -350,6 +359,11 @@ h2 {
   grid-template-rows: repeat(3, auto);
 }
 
+/* game-2-play.html */
+.hit-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+}
 }
 
 @media (max-width: 950px) { 
@@ -360,9 +374,11 @@ h2 {
 
 
 /* game-1-play.html */
+
 .hit-card-memory {
   margin-left: 4rem;
 }
+
 
 .hit-cards {
   grid-template-columns: repeat(3,auto);
@@ -377,19 +393,91 @@ h2 {
   padding: 2rem;
 }
 
+/* game-2-play.html */
+.display-game-2-play {
+  display: none;
+}
+#hit-memory-right {
+  margin-left: 2rem;
+}
+memory-game-two {
+  gap: 0.5rem 1rem;
+}
+
 }
 
 @media (max-width: 880px) { 
   /* two-players */
   
   /* game-1-play.html */
-  .container-hit-cards {
+  .display-game-1-play {
     display: none;
   }
-  #decoration-penguim {
-    display: none;
-  }
-  
-  
 
+  .container-memory-game-two {
+    display: flex;
+    flex-direction: column;
+}
+
+.memory-game {
+  padding: 0rem;
+}
+
+/* .player-photo-name {
+  flex-direction: row;
+} */
+  
+}
+
+
+@media (max-width: 765px){
+  /* two-players */
+  .display-two-players {
+    display: none;
+  }
+  
+  .mobile-btn-confirm {
+    display: block;
+  }
+  
+  #right{
+   margin: 1rem;
+  }
+
+  .container-two-players {
+    flex-direction: column;
+  }
+}
+@media (max-width: 765px) {
+    /* two-players */
+  .container-two-players {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .player-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .choice-animal {
+    order: 1;
+  }
+  .player-1 {
+    order: 2;
+  }
+  
+  .player-2 {
+    order: 3;
+  } 
+}
+
+@media (max-width: 630px){
+  .display-one-player {
+    display: none;
+  }
+.mobile-btn-confirm-one {
+  display: block;
+}
 }

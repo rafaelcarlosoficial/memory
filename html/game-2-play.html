@@ -10,6 +10,8 @@
     body {
         background: url(../images/background-snow.jpg);
         background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
     }
 </style>
 <body>
@@ -18,11 +20,14 @@
             <div class="player-title" id="left">
                 <h3 class="text-player">Player 1</h3>
                 <div class="player-photo-name">
-                  <img class="border-player-one" src="../images/Seahorse-animal.png" alt="Seahorse"/>
+                  <picture>
+                    <source srcset="../images/Seahorse-animal-responsive.png" media="(max-width: 1040px)">
+                    <img class="border-player-one" src="../images/Seahorse-animal.png" alt="Seahorse" />
+                  </picture>
                   <p class="animal-text">Seahorse</p>
                 </div>
               </div>
-              <div class="hit-cards-two">
+              <div class="hit-cards-two hit-cards-grid display-game-2-play">
                 <img class="card"  src="../images/back.png">
                 <img class="card" src="../images/back.png">
                 <img class="card" src="../images/back.png">
@@ -56,15 +61,18 @@
             <img src="../images/back.png">
             <img src="../images/back.png">
         </div>
-        <div class="hit-card-memory">
+        <div class="hit-card-memory" id="hit-memory-right">
             <div class="player-title" id="left">
                 <h3 class="text-player">Player 1</h3>
                 <div class="player-photo-name">
-                  <img class="border-player-one" src="../images/Seahorse-animal.png" alt="Seahorse"/>
+                  <picture>
+                    <source srcset="../images/Seahorse-animal-responsive.png" media="(max-width: 1040px)">
+                    <img class="border-player-one" src="../images/Seahorse-animal.png" alt="Seahorse" />
+                  </picture>
                   <p class="animal-text">Seahorse</p>
                 </div>
               </div>
-              <div class="hit-cards-two">
+              <div class="hit-cards-two hit-cards-grid display-game-2-play">
                 <img class="card"  src="../images/back.png">
                 <img class="card" src="../images/back.png">
                 <img class="card" src="../images/back.png">
