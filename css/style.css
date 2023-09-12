@@ -4,24 +4,20 @@
 }
 
 :root {
-  /* colors */
   --black: #020000;
   --brown: #1c1713;
   --light-blue: #b0e0e6;
   --orange: #f93f04;
   --white: #ffffff;
 
-  /* fonts */
   --font-family-Ice-cold-beer: "Ice cold beer", helvetica, arial, sans-serif;
 
-  /* font-size */
   --fontSize-title-1: 6rem;
   --fontSize-title-2: 3.75rem;
   --fontSize-title-3: 3.12rem;
   --fontSize-title-4: 2.18rem;
   --fontSize-title-5: 2.1rem;
 
-  /* border-radius */
   --border-radius-1: 46px;
   --border-radius-2: 37px;
 }
@@ -116,7 +112,7 @@ h2 {
   display: block;
 }
 .mobile-btn-confirm,
-.mobile-btn-confirm-one {
+.mobile-one {
   display: none;
 }
 
@@ -182,6 +178,7 @@ h2 {
   text-align: center;
 }
 
+
 #left {
   float: left;
 }
@@ -243,6 +240,9 @@ h2 {
   padding: 2rem;
 }
 
+#hitcards {
+  margin-right: 2rem;
+}
 .hit-cards {
   display: grid;
   grid-template-columns: repeat(5, auto);
@@ -269,6 +269,13 @@ h2 {
   align-items: center;
   margin: 2rem;
 }
+#hit-memory-left {
+  order: 1;
+}
+
+#hit-memory-right {
+  order: 3;
+}
 
 .hit-cards-two {
   display: grid;
@@ -285,6 +292,7 @@ h2 {
   border: 7px solid var(--orange);
   background: url(../images/memory-game-background.jpg);
   background-size: cover;
+  order: 2;
 }
 
 /* warning-scrren */
@@ -394,14 +402,17 @@ h2 {
 }
 
 /* game-2-play.html */
+
 .display-game-2-play {
   display: none;
 }
+
 #hit-memory-right {
   margin-left: 2rem;
 }
 memory-game-two {
   gap: 0.5rem 1rem;
+  order: 2;
 }
 
 }
@@ -431,6 +442,15 @@ memory-game-two {
 
 
 @media (max-width: 765px){
+  /* login-screen */
+  .title-and-players {
+  flex-direction: column;
+  }
+  
+  .container-two-players {
+  flex-direction: column;
+  gap: 2rem;
+  }
   /* two-players */
   .display-two-players {
     display: none;
@@ -443,17 +463,6 @@ memory-game-two {
   #right{
    margin: 1rem;
   }
-
-  .container-two-players {
-    flex-direction: column;
-  }
-}
-@media (max-width: 765px) {
-    /* two-players */
-  .container-two-players {
-    flex-direction: column;
-    gap: 2rem;
-  }
   
   .player-column {
     display: flex;
@@ -464,6 +473,7 @@ memory-game-two {
   .choice-animal {
     order: 1;
   }
+  
   .player-1 {
     order: 2;
   }
@@ -471,13 +481,22 @@ memory-game-two {
   .player-2 {
     order: 3;
   } 
+
 }
 
 @media (max-width: 630px){
+  /* one-player */
   .display-one-player {
     display: none;
   }
-.mobile-btn-confirm-one {
+  .mobile-one {
   display: block;
-}
+  }
+  
+  .container-one-player {
+    flex-direction: column;
+  }
+  #one-player-1 {
+    order: 2;
+  }
 }
