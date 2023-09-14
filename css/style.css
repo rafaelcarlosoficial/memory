@@ -202,7 +202,6 @@ h2 {
 }
 
 .animals {
-  
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
@@ -210,7 +209,6 @@ h2 {
   background-color: var(--brown);
   border: 1.5rem solid var(--brown);
   border-radius: var(--border-radius-2);
-
 }
 
 .animals img {
@@ -229,10 +227,7 @@ h2 {
   justify-content: center;
   margin: 0;
 }
-.avatar {
-  transform: translateX(-50vw);
-  transition:  0.5s ease; 
-}
+
 
 
 
