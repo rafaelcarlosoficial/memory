@@ -6,7 +6,7 @@ const btnContinue = document.querySelector("[btn-continue]");
 const btnContinueTwo = document.querySelectorAll('[btn-continue-two]');
 const initialWidth = window.innerWidth;
 let widthScreen;
-console.log(widthScreen);
+console.log(btnContinue);
 
 const changeAvatar = (name) => {
   switch (name) {
