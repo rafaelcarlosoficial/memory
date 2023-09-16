@@ -7,6 +7,7 @@
   --black: #020000;
   --brown: #1c1713;
   --light-blue: #b0e0e6;
+  --light-orange: #dc8d74;
   --orange: #f93f04;
   --white: #ffffff;
 
@@ -55,6 +56,7 @@ h2 {
   max-width: 100%; 
   height: auto; 
 }
+
 .btn {
   background-color: var(--orange);
   border: none;
@@ -66,6 +68,7 @@ h2 {
   align-items: center;
   justify-content: center;
 }
+
 
 .border-player-one,
 .border-player-two {
@@ -106,10 +109,14 @@ h2 {
   align-items: center;
   justify-content: center;
 }
+.display-btn {
+  display: none;
+}
+
 .display-game-1-play, 
 .display-game-2-play,
 .display-two-players,
-.display-one-player {
+.display-one-player, {
   display: block;
 }
 .mobile-btn-confirm,
@@ -117,7 +124,10 @@ h2 {
   display: none;
 }
 
-
+.saturation-card {
+  filter: saturate(0);
+  opacity: 0.5;
+}
 
 /* login-scrren */
 .title-and-players {
@@ -496,13 +506,21 @@ memory-game-two {
 
 }
 
-@media (max-width: 630px){
+@media (max-width: 750px){
   /* one-player */
   .display-one-player {
     display: none;
   }
   .mobile-one {
   display: block;
+  }
+  
+  .player-title {
+  text-align: center;
+  }
+  
+  .player-photo-name img, .player-photo-name p {
+    margin-right: 0;
   }
   
   .container-one-player {

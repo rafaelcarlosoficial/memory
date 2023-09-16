@@ -12,104 +12,76 @@
         <div class="player-title" id="left">
           <h3 class="text-player">Player 1</h3>
           <div class="player-photo-name">
-            <picture>
-              <source srcset="../images/Seahorse-animal-responsive.png" media="(max-width: 880px)">
-              <img class="border-player-one" src="../images/Seahorse-animal.png" alt="Seahorse" />
-            </picture>
             
-            <p class="animal-text">Seahorse</p>
+              <img class="border-player-one" src="../images/Seahorse-animal.png"  class="avatar" alt="Seahorse" data-image />
+            
+            <p class="animal-text" data-name>Seahorse</p>
           </div>
         </div>
 
         <div class="container-animal display-two-players">
-          <img class="img-responsive" src="../images/Seahorse-avatar.png" alt="Seahorse"/>
+          <img class="img-responsive avatar" src="../images/Seahorse-avatar.png" alt="Seahorse"/ style="transform: translateX(0);
+          transition:  0.5s ease;">
             <div class="align-center">
-              <button class="btn">Confirm</button>
+              <button class="btn" btn-confirm-two>Confirm</button>
             </div>
         </div>
         <div class="align-center mobile-btn-confirm">
-          <button class="btn">Confirm</button>
+          <button class="btn" btn-confirm-two>Confirm</button>
         </div>
       </div>
 
       <div class="choice-animal">
         <h2>Choice the animal</h2>
         <div class="animals">
-          <picture>
-            <source srcset="../images/Seahorse-animal-responsive.png" media="(max-width: 880px)">
-            <img src="../images/Seahorse-animal.png" alt="Seahorse" />
-          </picture>
           
-          <picture>
-            <source srcset="../images/beluga-animal-responsive.png" media="(max-width: 880px)">
-            <img src="../images/beluga-animal.png" alt="Beluga" />
-          </picture>
+            <img src="../images/Seahorse-animal.png" alt="Seahorse" data-animal/>
+        
+            <img src="../images/beluga-animal.png" alt="Beluga" data-animal />
+        
+            <img src="../images/white-shark-animal.png" alt="White shark" data-animal />
+        
+            <img src="../images/octopus-animal.png" alt="Octopus" data-animal />
+      
+            <img src="../images/perguin-animal.png" alt="Penguin" data-animal />
+        
+            <img src="../images/blue-whale-animal.png" alt="Blue whale" data-animal/>
           
-          <picture>
-            <source srcset="../images/white-shark-animal-responsive.png" media="(max-width: 880px)">
-            <img src="../images/white-shark-animal.png" alt="White shark" />
-          </picture>
+            <img src="../images/krill-animal.png" alt="Krill" data-animal/>
+
+            <img src="../images/sealion-animal.png" alt="Sealion" data-animal/>
           
-          <picture>
-            <source srcset="../images/octopus-animal-responsive.png" media="(max-width: 880px)">
-            <img src="../images/octopus-animal.png" alt="Octopus" />
-          </picture>
-          
-          <picture>
-            <source srcset="../images/perguin-animal-responsive.png" media="(max-width: 880px)">
-            <img src="../images/perguin-animal.png" alt="Penguin" />
-          </picture>
-          
-          <picture>
-            <source srcset="../images/blue-whale-animal-responsive.png" media="(max-width: 880px)">
-            <img src="../images/blue-whale-animal.png" alt="Blue whale" />
-          </picture>
-          
-          <picture>
-            <source srcset="../images/krill-animal-responsive.png" media="(max-width: 880px)">
-            <img src="../images/krill-animal.png" alt="Krill" />
-          </picture>
-          
-          <picture>
-            <source srcset="../images/sealion-animal-responsive.png" media="(max-width: 880px)">
-            <img src="../images/sealion-animal.png" alt="Sealion" />
-          </picture>
-          
-          <picture>
-            <source srcset="../images/dolphin-animal-responsive.png" media="(max-width: 880px)">
-            <img src="../images/dolphin-animal.png" alt="Dolphin" />
-          </picture>
+            <img src="../images/dolphin-animal.png" alt="Dolphin" data-animal />
         </div>
     
-        <button class="btn">Continue</button>
+        <button class="btn display-btn" btn-continue>Continue</button>
       </div>
 
       <div class="player-column player-2">
         <div class="player-title" id="right">
           <h3 class="text-player">Player 2</h3>
           <div class="player-photo-name">
-            <picture>
-              <source   srcset="../images/white-shark-animal-responsive.png" media="(max-width: 880px)">
-              <img class="border-player-two"  src="../images/white-shark-animal.png" alt="White shark" />
-            </picture>
             
-            <!-- <img class="border-player-two" src="../images/white-shark-animal.png" alt="White shark" /> -->
-            <p class="animal-text">Shark</p>
+              <img class="border-player-two"  src="../images/white-shark-animal.png" alt="White shark" data-image />
+        
+            <p class="animal-text" data-name>Shark</p>
           </div>
         </div>
 
         <div class="container-animal display-two-players">
           <img class="img-responsive" src="../images/white-shark-avatar.png" alt="White shark" />
           <div class="align-center">
-            <button class="btn">Confirm</button>
+            <button class="btn display-btn"btn-continue-two>Confirm</button>
           </div>
         </div>
         
         <div class="align-center mobile-btn-confirm">
-          <button class="btn">Confirm</button>
+          <button class="btn display-btn" btn-continue-two>Confirm</button>
         </div>
         
       </div>
+    
     </div>
+  <script src="../js/t-choose.js"></script>
   </body>
 </html>
