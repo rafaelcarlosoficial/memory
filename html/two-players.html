@@ -6,6 +6,11 @@
     <link rel="stylesheet" href="../css/style.css" />
     <title>two-players</title>
   </head>
+  <style>
+    body {
+      overflow-x: hidden;
+    }
+  </style>
   <body>
     <div class="container-two-players">
       <div class="player-column player-1">
@@ -13,14 +18,14 @@
           <h3 class="text-player">Player 1</h3>
           <div class="player-photo-name">
             
-              <img class="border-player-one" src="../images/Seahorse-animal.png"  class="avatar" alt="Seahorse" data-image />
+              <img class="border-player-one" src="../images/Seahorse-animal.png"   alt="Seahorse" data-image />
             
             <p class="animal-text" data-name>Seahorse</p>
           </div>
         </div>
 
         <div class="container-animal display-two-players">
-          <img class="img-responsive avatar" src="../images/Seahorse-avatar.png" alt="Seahorse"/ style="transform: translateX(0);
+          <img class="img-responsive" src="../images/Seahorse-avatar.png" alt="Seahorse" data-avatar/ style="transform: translateX(0);
           transition:  0.5s ease;">
             <div class="align-center">
               <button class="btn" btn-confirm-two>Confirm</button>
@@ -62,26 +67,27 @@
           <h3 class="text-player">Player 2</h3>
           <div class="player-photo-name">
             
-              <img class="border-player-two"  src="../images/white-shark-animal.png" alt="White shark" data-image />
+              <img class="border-player-two"  src="../images/white-shark-animal.png" alt="White shark" data-image-two/>
         
-            <p class="animal-text" data-name>Shark</p>
+            <p class="animal-text" data-name-two>Shark</p>
           </div>
         </div>
 
         <div class="container-animal display-two-players">
-          <img class="img-responsive" src="../images/white-shark-avatar.png" alt="White shark" />
+          <img class="img-responsive" src="../images/white-shark-avatar.png" alt="White shark" data-avatar-two style="transform: translateX(0);
+          transition:  0.5s ease;"/>
           <div class="align-center">
-            <button class="btn display-btn"btn-continue-two>Confirm</button>
+            <button class="btn display-btn"btn-confirm-two>Confirm</button>
           </div>
         </div>
         
         <div class="align-center mobile-btn-confirm">
-          <button class="btn display-btn" btn-continue-two>Confirm</button>
+          <button class="btn display-btn" btn-confirm-two load-game-2>Confirm</button>
         </div>
         
       </div>
     
     </div>
-  <script src="../js/t-choose.js"></script>
+  <script src="../js/t-choose.js" data-screen="two-player"></script>
   </body>
 </html>
