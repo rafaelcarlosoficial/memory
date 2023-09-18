@@ -107,35 +107,54 @@ const changeAnimal = (element) => {
   }
 
 };
-
-
-
-const confirmTheChoice = (click) => {
-  const confirm = click.target;
+const confirmTheChoiceTwo = (click) => {
   if (confirm.textContent === "Edit") {
     confirm.style.backgroundColor = "var(--orange)";
     confirm.textContent = "Confirm";
-    btnContinue.style.display = "none";
+    btnContinue.style.display = "block";
     animals.forEach((animal) => {
-      animal.addEventListener("click", animalClick);
+      animal.removeEventListener("click", animalClickTwo);
     });
+} else {
+  confirm.style.backgroundColor = "var(--light-orange)";
+  confirm.textContent = "Edit";
+  animals.forEach((animal) => {
+    animal.addEventListener("click", animalClick);
+  });
+  btnContinue.style.display = "block";
+}
+
+}
+
+
+// const confirmTheChoice = (click) => {
+//   const confirm = click.target;
+//   if (confirm.textContent === "Edit") {
+//     confirm.style.backgroundColor = "var(--orange)";
+//     confirm.textContent = "Confirm";
+//     btnContinue.style.display = "none";
+//     animals.forEach((animal) => {
+//       animal.addEventListener("click", animalClick);
+//     });
+//     btnConfirmTwo.forEach((btn) => {
+//       btn.addEventListener("click", confirmTheChoiceTwo);
+//     });
+
+//   } else {
+//     confirm.style.backgroundColor = "var(--light-orange)";
+//     confirm.textContent = "Edit";
+//     animals.forEach((animal) => {
+//       animal.removeEventListener("click", animalClick);
+//     });
+//     btnContinue.style.display = "block";
     
-  } else {
-    confirm.style.backgroundColor = "var(--light-orange)";
-    confirm.textContent = "Edit";
-    animals.forEach((animal) => {
-      animal.removeEventListener("click", animalClick);
-    });
-    confirmBothPlayers(nameScreen);
     
-  }
-};
+//   }
+// };
 
 const changeSaturation = (element) => {
-  
   const image = element.target;
   image.classList.add('saturation-card');
-  
 }
 
 const removeSaturation = (array) => {
@@ -163,25 +182,22 @@ const animalClickTwo = (event) => {
   removeSaturation(animals)
   changeAnimalTwo(event)
   changeSaturation(event)
-  releaseContinueButton(event)
 }
 
 
-const confirmBothPlayers = (nameScreen) => {
+// const confirmBothPlayers = (nameScreen) => {
 
-  if(nameScreen === 'two-player'){
-    btnConfirmTwo.forEach((btn) => {
-      btn.classList.remove('display-btn');
-    });
-    btnContinue.style.display = "none";
-    animals.forEach((animal) => {
-      animal.addEventListener('click', animalClickTwo);
-    });
+//   if(nameScreen === 'two-player'){
+//     btnConfirmTwo.forEach((btn) => {
+//       btn.classList.remove('display-btn');
+//     });
+//     btnContinue.style.display = "none";
+//     animals.forEach((animal) => {
+//       animal.addEventListener('click', animalClickTwo);
+//     });
     
-  } else { 
-  btnContinue.style.display = "block";
-  }
-}
+//   } 
+// }
 
 animals.forEach((animal) => {
   animal.addEventListener("click", animalClick);
@@ -194,10 +210,10 @@ btnConfirm.forEach((btn) => {
   confirmTheChoice);
 });
 
-btnConfirmTwo.forEach((btn) => {
-  btn.addEventListener("click", confirmTheChoice);
+// btnConfirmTwo.forEach((btn) => {
+//   btn.addEventListener("click", confirmTheChoice);
 
-});
+// });
 
 btnContinueTwo.forEach((btn) => {
   btn.addEventListener("click", () => {
