@@ -1,7 +1,10 @@
-const memoryGame = document.querySelector(".memory-game");
+const memoryGame = document.querySelector(".memory-game-two");
 const cardStore = document.querySelectorAll('[data-store]');
 const hit = document.querySelectorAll('[data-hit]');
+const player1 = document.querySelector('[data-player-1]');
+const player2 = document.querySelector('[data-player-2]');
 
+let player;
 const cards = [
     "demon",
     "dolphin",
@@ -14,7 +17,7 @@ const cards = [
     "shark",
     "hammer"
 ];
-  
+
 const createElement = (tag, className) => {
     const element = document.createElement(tag);
     element.className = className;
@@ -66,9 +69,19 @@ const checkIftisequal = () => {
 
 let firstCard = '';
 let secondCard = '';
+const playersTurn = () => {
+    let reversePlayers;
+    reversePlayers++;
+    player = true;
+    if(reversePlayers === 2) {
+        player = false;
+        reversePlayers = 0
+    }
+    
+}
 
 const revealCard = ({ target }) => {
-    
+    playersTurn()
     if(target.parentNode.className.includes('reveal-card')) return;
     
     if(firstCard === '') {

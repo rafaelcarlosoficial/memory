@@ -1,11 +1,11 @@
 const animals = document.querySelectorAll("[data-animal]");
 const avatar = document.querySelector("[data-avatar]");
 const avatarTwo = document.querySelector("[data-avatar-two]");
-const btnConfirmTwo = document.querySelectorAll("[btn-confirm-two]");
+const btnConfirmTwo = document.querySelector("[btn-confirm-two]");
 const btnContinue = document.querySelector("[btn-continue]");
 const btnConfirmContinue = document.querySelector("[btn-confirm-continue]");
 
-
+console.log("btnConfirmTwo", btnConfirmTwo)
 const changeAvatar = (name, avatar) => {
     switch (name) {
       case "Seahorse":
@@ -85,9 +85,11 @@ const changeSaturation = (element) => {
   
 
 const animalClick = (event) => {
+    checkConfirmButton(btnConfirmTwo, btnConfirmContinue);
     removeSaturation(animals)
     changeAnimal(event)
     changeSaturation(event)
+    
 }
 
 animals.forEach((animal) => {
@@ -96,7 +98,7 @@ animals.forEach((animal) => {
   
 // button confirm
 const checkConfirmButton = (btnConfirmTwo, btnConfirmContinue) => {
-    if(btnConfirmTwo === 'Edit' && btnConfirmContinue === 'Edit') {
+    if(btnConfirmTwo.textContent === 'Edit' && btnConfirmContinue.textContent === 'Edit') {
         btnContinue.style.display = "block";
         
         animals.forEach((animal) => {
@@ -145,6 +147,7 @@ const changeAnimalTwo = (element) => {
 
 
 const animalClickTwo = (event) => {
+    checkConfirmButton(btnConfirmTwo, btnConfirmContinue);
     removeSaturation(animals)
     changeAnimalTwo(event)
     changeSaturation(event)
@@ -169,14 +172,14 @@ const confirmTheChoice = (click) => {
     } else {
       confirm.style.backgroundColor = "var(--light-orange)";
       confirm.textContent = "Edit";
+      
+    
+      animals.forEach((animal) => {
+        animal.addEventListener("click", animalClickTwo);
+      });
       checkConfirmButton(btnConfirmTwo, btnConfirmContinue);
       animals.forEach((animal) => {
         animal.removeEventListener("click", animalClick);
-      });
-      
-      
-      animals.forEach((animal) => {
-        animal.addEventListener("click", animalClickTwo);
       });
 
       btnConfirmContinue.classList.remove('display-btn');
@@ -185,10 +188,7 @@ const confirmTheChoice = (click) => {
 }
 
 
-btnConfirmTwo.forEach((btn) => {
-    btn.addEventListener("click", confirmTheChoice);
-});
-  
+btnConfirmTwo.addEventListener('click', confirmTheChoice);
   
 btnContinue.addEventListener("click", () => {
     window.location.href = '../html/game-2-play.html';

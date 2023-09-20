@@ -298,6 +298,10 @@ h2 {
   background-position: center;
   background-image: url(../images/back.png);
 }
+.hit-scale {
+  transform: scale(70%);
+}
+
 .reveal-card {
   transform: rotateY(180deg);
 }
@@ -313,7 +317,7 @@ h2 {
   display: grid;
   grid-template-columns: repeat(5, auto);
   grid-template-rows: repeat(2, auto);
-  gap: 1px;
+  gap: 10px;
 }
 .card {
   max-width: 100%;
@@ -354,8 +358,7 @@ h2 {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(5, 1fr);
-  gap: 0.5rem 3rem;
-  border: 7px solid var(--orange);
+  gap: 0.5rem 0.5rem;
   background: url(../images/memory-game-background.jpg);
   background-size: cover;
   order: 2;
