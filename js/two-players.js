@@ -50,6 +50,9 @@ const changeAnimal = (element) => {
     profileImage.setAttribute("src", image);
     profileName.innerHTML = name;
     
+    localStorage.setItem('Nome of the animal p1', name);
+    localStorage.setItem('Image of animal p1', image)
+    
     if (avatar.style.transform.includes("translateX(-60vw)")) {
       setTimeout(() => {
         avatar.style.transform = "translateX(0)";
@@ -123,6 +126,9 @@ const changeAnimalTwo = (element) => {
   
     profileImage.setAttribute("src", image);
     profileName.innerHTML = name;
+    
+    localStorage.setItem('Nome of the animal p2', name);
+    localStorage.setItem('Image of animal p2', image)
     
     if (avatarTwo.style.transform.includes("translateX(60vw)")) {
       setTimeout(() => {

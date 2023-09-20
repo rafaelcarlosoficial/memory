@@ -1,7 +1,8 @@
 const memoryGame = document.querySelector(".memory-game");
 const cardStore = document.querySelectorAll('[data-store]');
 const hit = document.querySelectorAll('[data-hit]');
-
+const nameAnimal = document.querySelector('[data-name-animal]');
+const imageAnimal = document.querySelector('[data-image-animal]');
 const cards = [
     "demon",
     "dolphin",
@@ -110,7 +111,10 @@ const loadGame = () => {
 }
 
 
-window.onload = () => {
 
+//capturar o nome
+window.onload = () => {
+    nameAnimal.innerHTML = localStorage.getItem('Nome do Animal');
+    imageAnimal.src = localStorage.getItem('Image of animal');
     loadGame();
-};
+}

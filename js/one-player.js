@@ -40,7 +40,9 @@ const changeAnimal = (element) => {
     const animal = element.target;
     const name = animal.getAttribute("alt");
     const image = animal.getAttribute("src");
-  
+    localStorage.setItem('Nome do Animal', name);
+    localStorage.setItem('Image of animal', image)
+    // window.location = '../html/game-1-play.html';
     const profileName = document.querySelector("[data-name]");
     const profileImage = document.querySelector("[data-image]");
   
@@ -122,4 +124,5 @@ btnConfirm.forEach((btn) => {
     btn.addEventListener("click",
     confirmTheChoice);
   });
+
 
