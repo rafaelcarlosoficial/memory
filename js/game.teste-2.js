@@ -7,8 +7,11 @@ const nameAnimal = document.querySelector('[data-name-animal]');
 const imageAnimal = document.querySelector('[data-image-animal]');
 const nameAnimalTwo = document.querySelector('[data-name-animal-two]');
 const imageAnimalTwo = document.querySelector('[data-image-animal-two]');
-
+const hitCardsPlayer2 = document.querySelector('.hit-cards-two[data-player-2]');
+const hitCardsPlayer1 = document.querySelector('.hit-cards-two[data-player-1]');
 let player;
+let cardCounter = 0;
+
 const cards = [
     "demon",
     "dolphin",
@@ -35,33 +38,32 @@ const checkEndGame  = () => {
     }
 }
 
-const storeCard = (character) => {
-    
+const storeCard = (character, hitCardsPlayer) => {
+    console.log("43", hitCardsPlayer)
+    let cardStore = hitCardsPlayer.querySelectorAll('[data-store]');
+    let hit = hitCardsPlayer.querySelectorAll('[data-hit]');
     if(cardStore.length > 0) {
-    if(player === false) { 
     
-    const cardtoSet = [...cardStore].find(card => !card.getAttribute('data-character'));
+    cardtoSet = [...cardStore].find(card => !card.getAttribute('data-character'));
     cardtoSet.setAttribute('data-character', character);
-    const hitSet = [...hit].find(hit => !hit.getAttribute('data-background'));
+    let hitSet = [...hit].find(hit => !hit.getAttribute('data-background'));
     hitSet.setAttribute('data-background', character)
     hitSet.style.backgroundImage = `url(../images/${character}.png`
-    cardtoSet.appendChild(hitSet)
-    player1.appendChild(cardtoSet)
     
-    } else {
-        const cardtoSet = [...cardStore].find(card => !card.getAttribute('data-character'));
-        cardtoSet.setAttribute('data-character', character);
-        const hitSet = [...hit].find(hit => !hit.getAttribute('data-background'));
-        hitSet.setAttribute('data-background', character)
-        hitSet.style.backgroundImage = `url(../images/${character}.png`
-        cardtoSet.appendChild(hitSet)
-        player2.appendChild(cardtoSet)
+    } 
     
-    }
     } 
  
-}
 
+const ChangeTheTurn = () => {
+    console.log(cardCounter)
+    if (cardCounter % 3 === 0){
+        return hitCardsPlayer2; 
+    } else {
+        return  hitCardsPlayer1; 
+    }
+}
+    
 const checkIftisequal = () => {
     const firstCharacter = firstCard.getAttribute('data-character');
     const secondCharacter = secondCard.getAttribute('data-character');
@@ -71,7 +73,7 @@ const checkIftisequal = () => {
     secondCard.firstChild.classList.add('disabled-card');
     firstCard = '';
     secondCard = '';
-    storeCard(firstCharacter)
+    storeCard(firstCharacter, ChangeTheTurn());
     checkEndGame();
     } else {
         setTimeout(() => {
@@ -86,15 +88,11 @@ const checkIftisequal = () => {
 let firstCard = '';
 let secondCard = '';
 
-
-
     
-const revealCard = (target) => {
-    const targetPlayer = player ? player1 : player2
-    
-    if(targetPlayer) {  
+const revealCard = ({target}) => {
+   
     if(target.parentNode.className.includes('reveal-card')) return;
-    
+    cardCounter++;
     if(firstCard === '') {
     target.parentNode.classList.add('reveal-card');
     firstCard = target.parentNode;
@@ -104,22 +102,9 @@ const revealCard = (target) => {
         secondCard = target.parentNode;
         checkIftisequal();
     }
-    }
-}
-const cardClick = ({ target }) => {
-    let reversePlayers;
-    reversePlayers++;
-    if(reversePlayers / 3) {
-        if(player === false){
-            player = true;
-        } else {
-            player = false;
-        }
-    
-    }  
-    revealCard(target);
     
 }
+
 const createCard = (character) => {
     
     const card = createElement('div', 'card');
@@ -130,7 +115,8 @@ const createCard = (character) => {
     card.appendChild(front);
     card.appendChild(back);
     
-    card.addEventListener('click', cardClick);
+    card.addEventListener('click', revealCard);
+
     card.setAttribute('data-character', character);
     
     return card;    
@@ -149,10 +135,10 @@ const loadGame = () => {
 
 
 window.onload = () => {
-    nameAnimal.innerHTML = localStorage.getItem('Nome do Animal');
-    imageAnimal.src = localStorage.getItem('Image of animal');
-    nameAnimalTwo.innerHTML = localStorage.getItem('');
-    imageAnimalTwo.src = localStorage.getItem('');
+    nameAnimal.innerHTML = localStorage.getItem('Nome of the animal p1');
+    imageAnimal.src = localStorage.getItem('Image of animal p1');
+    nameAnimalTwo.innerHTML = localStorage.getItem('Nome of the animal p2');
+    imageAnimalTwo.src = localStorage.getItem('Image of animal p2');
     
     loadGame();
 };
