@@ -10,7 +10,9 @@ const imageAnimalTwo = document.querySelector('[data-image-animal-two]');
 const hitCardsPlayer2 = document.querySelector('.hit-cards-two[data-player-2]');
 const hitCardsPlayer1 = document.querySelector('.hit-cards-two[data-player-1]');
 let player;
+let rafael;
 let cardCounter = 0;
+let teste = true;
 
 const cards = [
     "demon",
@@ -64,17 +66,19 @@ const storeCard = (character, hitCardsPlayer) => {
 //     }
 // }
     
-const checkIftisequal = (hitCardsPlayer1, hitCardsPlayer2) => {
+const checkIftisequal = (hitCardsPlayer) => {
     const firstCharacter = firstCard.getAttribute('data-character');
     const secondCharacter = secondCard.getAttribute('data-character');
 
     if(firstCharacter === secondCharacter) {
+     rafael = true;
+    
     firstCard.firstChild.classList.add('disabled-card');
     secondCard.firstChild.classList.add('disabled-card');
     firstCard = '';
     secondCard = '';
     // storeCard(firstCharacter, ChangeTheTurn());
-    storeCard(firstCharacter, hitCardsPlayer1);
+    storeCard(firstCharacter, hitCardsPlayer);
     checkEndGame();
     } else {
         setTimeout(() => {
@@ -93,7 +97,6 @@ let secondCard = '';
 const revealCard = ({target}) => {
    
     if(target.parentNode.className.includes('reveal-card')) return;
-    cardCounter++;
     if(firstCard === '') {
     target.parentNode.classList.add('reveal-card');
     firstCard = target.parentNode;
@@ -101,7 +104,27 @@ const revealCard = ({target}) => {
     } else if (secondCard === '') {
         target.parentNode.classList.add('reveal-card');
         secondCard = target.parentNode;
-        checkIftisequal();
+        console.log(teste, 107)
+        if(teste === true) {
+            checkIftisequal(hitCardsPlayer1);
+            if(rafael === true){
+                teste = true;
+                rafael = '';
+            } else {
+                teste = false;
+            }
+            
+        } else if (teste === false) {
+            checkIftisequal(hitCardsPlayer2);
+            if(rafael === true){
+                teste = false;
+                rafael = '';
+            } else {
+                teste = true;
+            }
+            
+        }
+        
     }
     
 }
