@@ -1,14 +1,21 @@
 const memoryGame = document.querySelector(".memory-game-two");
 const cardStore = document.querySelectorAll('[data-store]');
 const hit = document.querySelectorAll('[data-hit]');
+
 const player1 = document.querySelector('[data-player-1]');
-const player2 = document.querySelector('[data-player-2]');
+const hitCardsPlayer1 = document.querySelector('.hit-cards-two[data-player-1]');
+const play1 = document.querySelector('[player-1]');
 const nameAnimal = document.querySelector('[data-name-animal]');
 const imageAnimal = document.querySelector('[data-image-animal]');
+
+const player2 = document.querySelector('[data-player-2]');
+const hitCardsPlayer2 = document.querySelector('.hit-cards-two[data-player-2]');
+const play2 = document.querySelector('[player-2]');
 const nameAnimalTwo = document.querySelector('[data-name-animal-two]');
 const imageAnimalTwo = document.querySelector('[data-image-animal-two]');
-const hitCardsPlayer2 = document.querySelector('.hit-cards-two[data-player-2]');
-const hitCardsPlayer1 = document.querySelector('.hit-cards-two[data-player-1]');
+
+
+
 let player;
 let rafael;
 let cardCounter = 0;
@@ -44,9 +51,38 @@ const storeCard = (character, hitCardsPlayer) => {
     console.log("43", hitCardsPlayer)
     let cardStore = hitCardsPlayer.querySelectorAll('[data-store]');
     let hit = hitCardsPlayer.querySelectorAll('[data-hit]');
-    if(cardStore.length > 0) {
+    let allContainsDataCharacter = true;
+    cardStore.forEach((card) => {
+        if (!card.hasAttribute('data-character')){
+            allContainsDataCharacter = false;
+        }
+    });
+    if(allContainsDataCharacter === true){
+
+    const divCard = createElement('div', 'card hit-scale');
+    divCard.setAttribute('data-store', '');
+    divCard.setAttribute('data-character',character)
     
-    cardtoSet = [...cardStore].find(card => !card.getAttribute('data-character'));
+    const divHit = createElement('div', 'face hit');
+    divHit.setAttribute('data-hit', '');
+    divHit.setAttribute('data-background', character)
+    // divHit.backgroundImage = 'none';
+    divHit.style.backgroundImage = `url(../images/${character}.png)`;
+    divCard.appendChild(divHit);
+    
+    hitCardsPlayer.appendChild(divCard);
+    
+    //teste
+    // const cardtoSet = [...cardStore].find(card => !card.getAttribute('data-character'));
+    // cardtoSet.setAttribute('data-character', character);
+    // let hitSet = [...hit].find(hit => !hit.getAttribute('data-background'));
+    // hitSet.setAttribute('data-background', character)
+    // hitSet.style.backgroundImage = `url(../images/${character}.png`
+    
+    
+    } else if (cardStore.length > 0) {
+    
+    const cardtoSet = [...cardStore].find(card => !card.getAttribute('data-character'));
     cardtoSet.setAttribute('data-character', character);
     let hitSet = [...hit].find(hit => !hit.getAttribute('data-background'));
     hitSet.setAttribute('data-background', character)
@@ -92,14 +128,34 @@ const checkIftisequal = (hitCardsPlayer) => {
 
 let firstCard = '';
 let secondCard = '';
+const brownColor = (player, namee, image) => {
+    player.style.color = 'var(--brown)';
+    namee.style.color = 'var(--brown)';
+    image.style.borderColor = 'var(--brown)'
 
-    
+
+}
+
+//cor laranja seria o nome mais adequado para função;
+const changeTheColor = (player, name, image) => {
+    player.style.color = 'var(--orange)';
+    name.style.color = 'var(--orange)';
+    image.style.borderColor = 'var(--orange)';
+}
+
 const revealCard = ({target}) => {
    
     if(target.parentNode.className.includes('reveal-card')) return;
     if(firstCard === '') {
     target.parentNode.classList.add('reveal-card');
     firstCard = target.parentNode;
+    if(teste === true){
+        brownColor(play2, nameAnimalTwo, imageAnimalTwo);
+        changeTheColor(play1, nameAnimal, imageAnimal);
+    } else if( teste === false){
+        brownColor(play1, nameAnimal, imageAnimal)
+        changeTheColor(play2, nameAnimalTwo, imageAnimalTwo)
+    }
     
     } else if (secondCard === '') {
         target.parentNode.classList.add('reveal-card');
