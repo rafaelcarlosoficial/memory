@@ -481,9 +481,13 @@ h2 {
 /* game-1-play.html */
 
 .hit-card-memory {
-  margin-left: 4rem;
+  margin-left: 0rem;
 }
 
+
+.container-memory-game-two{
+grid-template-columns: auto;
+}
 
 .hit-cards {
   grid-template-columns: repeat(3,auto);
@@ -505,12 +509,13 @@ h2 {
 }
 
 #hit-memory-right {
-  margin-left: 2rem;
+  margin-left: 0rem;
   order: 2;
 }
+
 memory-game-two {
   gap: 0.5rem 1rem;
-  order: 2;
+  order: 3;
 }
 
 }
@@ -523,14 +528,6 @@ memory-game-two {
     display: none;
   }
 
-  .container-memory-game-two {
-    display: flex;
-    flex-direction: column;
-}
-
-.memory-game {
-  padding: 0rem;
-}
 
 /* .player-photo-name {
   flex-direction: row;

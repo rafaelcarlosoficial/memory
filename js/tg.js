@@ -14,7 +14,8 @@ const play2 = document.querySelector('[player-2]');
 const nameAnimalTwo = document.querySelector('[data-name-animal-two]');
 const imageAnimalTwo = document.querySelector('[data-image-animal-two]');
 
-
+const pointsStore1 = [];
+const pointsStore2 = [];
 
 let player;
 let rafael;
@@ -41,14 +42,16 @@ const createElement = (tag, className) => {
 }
 
 const checkEndGame  = () => {
-    const disableCards = document.querySelectorAll('.disable-card');
+    const disableCards = document.querySelectorAll('.disabled-card');
+    console.log("Aqui está o disable", disableCards);
     if (disableCards.length === 20){
-        alert('Parabéns, você conseguiu!');
+        setTimeout(() => {
+            alert('Parabéns, você conseguiu!');
+        }, 2000);
     }
 }
 
 const storeCard = (character, hitCardsPlayer) => {
-    console.log("43", hitCardsPlayer)
     let cardStore = hitCardsPlayer.querySelectorAll('[data-store]');
     let hit = hitCardsPlayer.querySelectorAll('[data-hit]');
     let allContainsDataCharacter = true;
@@ -72,12 +75,6 @@ const storeCard = (character, hitCardsPlayer) => {
     
     hitCardsPlayer.appendChild(divCard);
     
-    //teste
-    // const cardtoSet = [...cardStore].find(card => !card.getAttribute('data-character'));
-    // cardtoSet.setAttribute('data-character', character);
-    // let hitSet = [...hit].find(hit => !hit.getAttribute('data-background'));
-    // hitSet.setAttribute('data-background', character)
-    // hitSet.style.backgroundImage = `url(../images/${character}.png`
     
     
     } else if (cardStore.length > 0) {
@@ -92,17 +89,17 @@ const storeCard = (character, hitCardsPlayer) => {
     
     } 
  
-
-// const ChangeTheTurn = () => {
-//     console.log(cardCounter)
-//     if (cardCounter % 3 === 0){
-//         return hitCardsPlayer2; 
-//     } else {
-//         return  hitCardsPlayer1; 
-//     }
-// }
+const showPoint = (name, pointStore) => {
+    if(pointStore.hasOwnProperty(name)) {
+        pointStore[name]++;
     
-const checkIftisequal = (hitCardsPlayer) => {
+    } else {
+        pointStore[name] = 1;
+    }
+    name.innerHTML = `${pointStore[name]} point`;
+}
+    
+const checkIftisequal = (hitCardsPlayer, name, pointStore) => {
     const firstCharacter = firstCard.getAttribute('data-character');
     const secondCharacter = secondCard.getAttribute('data-character');
 
@@ -113,7 +110,7 @@ const checkIftisequal = (hitCardsPlayer) => {
     secondCard.firstChild.classList.add('disabled-card');
     firstCard = '';
     secondCard = '';
-    // storeCard(firstCharacter, ChangeTheTurn());
+    showPoint(name, pointStore);
     storeCard(firstCharacter, hitCardsPlayer);
     checkEndGame();
     } else {
@@ -132,7 +129,8 @@ const brownColor = (player, namee, image) => {
     player.style.color = 'var(--brown)';
     namee.style.color = 'var(--brown)';
     image.style.borderColor = 'var(--brown)'
-
+    //criar uma função que mude a cor com base em parametros, player name, image e color
+    
 
 }
 
@@ -160,9 +158,8 @@ const revealCard = ({target}) => {
     } else if (secondCard === '') {
         target.parentNode.classList.add('reveal-card');
         secondCard = target.parentNode;
-        console.log(teste, 107)
         if(teste === true) {
-            checkIftisequal(hitCardsPlayer1);
+            checkIftisequal(hitCardsPlayer1, nameAnimal, pointsStore1);
             if(rafael === true){
                 teste = true;
                 rafael = '';
@@ -171,7 +168,7 @@ const revealCard = ({target}) => {
             }
             
         } else if (teste === false) {
-            checkIftisequal(hitCardsPlayer2);
+            checkIftisequal(hitCardsPlayer2, nameAnimalTwo, pointsStore2);
             if(rafael === true){
                 teste = false;
                 rafael = '';
