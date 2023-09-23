@@ -1,90 +1,135 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Game 2 play</title>
-    <link rel="stylesheet" href="../css/style.css">
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-</head>
-<style>
+    <link rel="stylesheet" href="../css/style.css"/>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> -->
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+  </head>
+  <style>
     body {
-        background: url(../images/background-snow.jpg);
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-attachment: fixed;
+      background: url(../images/background-snow.jpg);
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
     }
-</style>
-<body>
+  </style>
+  <body>
     <div class="container-memory-game-two">
-        <div class="hit-card-memory" id="hit-memory-left">
-            <div class="player-title" id="left">
-                <h3 class="text-player" player-1>Player 1</h3>
-                <div class="player-photo-name">
-                    <img class="border-player-one" src="../images/Seahorse-animal.png" alt="Seahorse" data-image-animal/>
-                  <p class="animal-text" data-name-animal>Seahorse</p>
-                </div>
-              </div>
-              <div class="hit-cards-two hit-cards-grid display-game-2-play" data-player-1>
-                <div class="card hit-scale" data-store>
-                  <div class="face hit" data-hit></div>
-                </div>
-                <div class="card hit-scale" data-store>
-                  <div class="face hit" data-hit></div>
-                </div>
-                <div class="card hit-scale" data-store>
-                  <div class="face hit" data-hit></div>
-                </div>
-                <div class="card hit-scale" data-store>
-                  <div class="face hit" data-hit></div>
-                </div>
-                <div class="card hit-scale" data-store>
-                  <div class="face hit" data-hit></div>
-                </div>
-             
-              </div>
+      <div class="hit-card-memory" id="hit-memory-left">
+        <div class="player-title" id="left">
+          <h3 class="text-player" player-1>Player 1</h3>
+          <div class="player-photo-name">
+            <img
+              class="border-player-one"
+              src="../images/Seahorse-animal.png"
+              alt="Seahorse"
+              data-image-animal
+            />
+            <p class="animal-text" data-name-animal>Seahorse</p>
+          </div>
         </div>
-        <div class="hit-card-memory" id="hit-memory-right">
-          <div class="player-title" id="left">
-              <h3 class="text-player" player-2>Player 2</h3>
-              <div class="player-photo-name">
-                  <img class="border-player-one" src="../images/Seahorse-animal.png" alt="Seahorse"data-image-animal-two/>
-                <p class="animal-text" data-name-animal-two>Seahorse</p>
-              </div>
-            </div>
-            <div class="hit-cards-two hit-cards-grid display-game-2-play" data-player-2>
-              <div class="card hit-scale" data-store>
-                <div class="face hit" data-hit></div>
-              </div>
-              <div class="card hit-scale" data-store>
-                <div class="face hit" data-hit></div>
-              </div>
-              <div class="card hit-scale" data-store>
-                <div class="face hit" data-hit></div>
-              </div>
-              <div class="card hit-scale" data-store>
-                <div class="face hit" data-hit></div>
-              </div>
-              <div class="card hit-scale" data-store>
-                <div class="face hit" data-hit></div>
-              </div>
-            </div>
+        <div
+          class="hit-cards-two hit-cards-grid display-game-2-play"
+          data-player-1
+        >
+          <div class="card hit-scale" data-store>
+            <div class="face hit" data-hit></div>
+          </div>
+          <div class="card hit-scale" data-store>
+            <div class="face hit" data-hit></div>
+          </div>
+          <div class="card hit-scale" data-store>
+            <div class="face hit" data-hit></div>
+          </div>
+          <div class="card hit-scale" data-store>
+            <div class="face hit" data-hit></div>
+          </div>
+          <div class="card hit-scale" data-store>
+            <div class="face hit" data-hit></div>
+          </div>
         </div>
-        <div class="memory-game-two">
-
+      </div>
+      <div class="hit-card-memory" id="hit-memory-right">
+        <div class="player-title" id="left">
+          <h3 class="text-player" player-2>Player 2</h3>
+          <div class="player-photo-name">
+            <img
+              class="border-player-one"
+              src="../images/Seahorse-animal.png"
+              alt="Seahorse"
+              data-image-animal-two
+            />
+            <p class="animal-text" data-name-animal-two>Seahorse</p>
+          </div>
         </div>
-        
-        
-        
+        <div
+          class="hit-cards-two hit-cards-grid display-game-2-play"
+          data-player-2
+        >
+          <div class="card hit-scale" data-store>
+            <div class="face hit" data-hit></div>
+          </div>
+          <div class="card hit-scale" data-store>
+            <div class="face hit" data-hit></div>
+          </div>
+          <div class="card hit-scale" data-store>
+            <div class="face hit" data-hit></div>
+          </div>
+          <div class="card hit-scale" data-store>
+            <div class="face hit" data-hit></div>
+          </div>
+          <div class="card hit-scale" data-store>
+            <div class="face hit" data-hit></div>
+          </div>
+        </div>
+      </div>
+      <div class="memory-game-two"></div>
     </div>
+    <div class="container-warning-screen">
+      <img src="../images/penguin-warning.png" class="warning-image" />
+      <div class="warning-screen">
+        <div class="container-message">
+          <h1 class="congratulations-message">
+            Congratulations<strong class="marine-animal" congratulate-winner> </strong>
+          </h1>
+          <div class="buttons">
+            <button class="btn warning-btn" play-again>
+              Play again
+              <ion-icon
+                name="play-circle"
+                alt="Ícone de jogar novamente"
+              ></ion-icon>
+            </button>
+            <button class="btn warning-btn" back-to-login>
+              Back to login
+              <ion-icon
+                name="arrow-back-circle"
+                alt="Ícone de voltar"
+              ></ion-icon>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <script>
-            // Swal.fire({
-            // title: 'Error!',
-            // text: 'Do you want to continue',
-            // icon: 'error',
-            // confirmButtonText: 'Cool'
-            // })
+      // Swal.fire({
+      // title: 'Error!',
+      // text: 'Do you want to continue',
+      // icon: 'error',
+      // confirmButtonText: 'Cool'
+      // })
     </script>
     <script src="../js/tg.js"></script>
-</body>
+  </body>
 </html>

@@ -23,8 +23,6 @@
   --border-radius-2: 37px;
 }
 
-
-
 * {
   margin: 0px;
   padding: 0px;
@@ -53,8 +51,8 @@ h2 {
   text-align: center;
 }
 .img-responsive {
-  max-width: 100%; 
-  height: auto; 
+  max-width: 100%;
+  height: auto;
 }
 
 .btn {
@@ -68,7 +66,6 @@ h2 {
   align-items: center;
   justify-content: center;
 }
-
 
 .border-player-one,
 .border-player-two {
@@ -113,7 +110,7 @@ h2 {
   display: none;
 }
 
-.display-game-1-play, 
+.display-game-1-play,
 .display-game-2-play,
 .display-two-players,
 .display-one-player {
@@ -195,7 +192,6 @@ h2 {
   text-align: center;
 }
 
-
 #left {
   float: left;
 }
@@ -238,9 +234,6 @@ h2 {
   margin: 0;
 }
 
-
-
-
 /* game-1-play */
 .container-memory-game {
   display: flex;
@@ -250,7 +243,6 @@ h2 {
   justify-content: center;
 }
 
-
 .memory-game {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -259,7 +251,6 @@ h2 {
   padding: 2rem;
   width: 100%;
   margin: 0 auto;
-
 }
 
 .card {
@@ -287,7 +278,7 @@ h2 {
 }
 
 .back {
-  background-image: url('../images/back.png');
+  background-image: url("../images/back.png");
   background-size: cover;
   background-position: center;
   backface-visibility: hidden;
@@ -307,8 +298,8 @@ h2 {
 }
 
 .disabled-card {
-  filter: hue-rotate(120deg)
-};
+  filter: hue-rotate(120deg);
+}
 
 #hitcards {
   margin-right: 2rem;
@@ -381,22 +372,41 @@ h2 {
 /* warning-scrren */
 
 .container-warning-screen {
-  display: flex;
+  display: none;
+  position: fixed;
   justify-content: center;
   align-items: center;
   height: 100vh;
+  z-index: 2;
+  background-color: rgba(0, 0, 0, 0.9);
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
 }
-
+/* .warning-screen {
+  background-color: var(--black);
+  display: none;
+  flex-direction: row;
+  gap: 1px;
+  align-items: center;
+  border-radius: var(--border-radius-1);
+  margin-ontainer-messagetop: 9rem;
+} */
 .warning-screen {
   background-color: var(--black);
-  display: flex;
+  display: inline-flex;
   flex-direction: row;
   gap: 1px;
   align-items: center;
   border-radius: var(--border-radius-1);
   margin-top: 9rem;
+  transform: translateY(-20vw) translateX(10vw);
 }
 
+.warning-btn:hover  {
+  background-color: var(--light-orange);
+}
 .congratulations-message {
   font-size: var(--fontSize-title-3);
   color: var(--white);
@@ -422,8 +432,11 @@ h2 {
 }
 
 .warning-image {
-  transform: translateX(8rem);
+  transform: translateX(20vw);
+  z-index: 3;
+  position: relative;
 }
+
 
 .close-warning {
   font-size: 4rem;
@@ -433,169 +446,164 @@ h2 {
 
 @media (max-width: 1330px) {
   /* game-1-play.html */
-  
+
   .memory-game {
     transform: scale(80%);
   }
-   /* game-2-play.html */
-   .player-photo-name {
+  /* game-2-play.html */
+  .player-photo-name {
     flex-direction: column;
-   }
+  }
 }
 
-@media (max-width: 1050px) { 
-/* game-1-play.html */
-.memory-game {
-  grid-template-columns: repeat(4, auto);
-  grid-template-rows: repeat(3, auto);
+@media (max-width: 1050px) {
+  /* game-1-play.html */
+  .memory-game {
+    grid-template-columns: repeat(4, auto);
+    grid-template-rows: repeat(3, auto);
+  }
+
+  /* game-2-play.html */
+  .memory-game-two {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+  }
+  .hit-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    transform: scale(80%);
+  }
+
+  .player-title {
+    text-align: center;
+  }
+
+  .player-photo-name img {
+    margin-right: 0.7rem;
+  }
 }
 
-/* game-2-play.html */
-.memory-game-two {
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(6, 1fr);
-
-}
-.hit-cards-grid {
-  display: grid;
-  grid-template-columns: repeat(2, auto);
-  transform: scale(80%);
-}
-
-.player-title {
-  text-align: center;
-}
-
-.player-photo-name img {
-  margin-right: 0.7rem;
-}
-}
-
-@media (max-width: 950px) { 
-/* two-players */
-.text-player, .animal-text, .btn  {
-  font-size: var(--fontSize-title-4);
-} 
-
-
-/* game-1-play.html */
-
-.hit-card-memory {
-  margin-left: 0rem;
-}
-
-
-.container-memory-game-two{
-grid-template-columns: auto;
-}
-
-.hit-cards {
-  grid-template-columns: repeat(3,auto);
-  grid-template-rows: repeat(4, auto);
-  gap: 1px;
-}
-
-.memory-game {
-  gap: 0.5rem 1rem;
-  border: none;
-  background: none;
-  padding: 2rem;
-}
-
-/* game-2-play.html */
-
-.display-game-2-play {
-  display: none;
-}
-
-#hit-memory-right {
-  margin-left: 0rem;
-  order: 2;
-}
-
-memory-game-two {
-  gap: 0.5rem 1rem;
-  order: 3;
-}
-
-}
-
-@media (max-width: 880px) { 
+@media (max-width: 950px) {
   /* two-players */
-  
+  .text-player,
+  .animal-text,
+  .btn {
+    font-size: var(--fontSize-title-4);
+  }
+
+  /* game-1-play.html */
+
+  .hit-card-memory {
+    margin-left: 0rem;
+  }
+
+  .container-memory-game-two {
+    grid-template-columns: auto;
+  }
+
+  .hit-cards {
+    grid-template-columns: repeat(3, auto);
+    grid-template-rows: repeat(4, auto);
+    gap: 1px;
+  }
+
+  .memory-game {
+    gap: 0.5rem 1rem;
+    border: none;
+    background: none;
+    padding: 2rem;
+  }
+
+  /* game-2-play.html */
+
+  .display-game-2-play {
+    display: none;
+  }
+
+  #hit-memory-right {
+    margin-left: 0rem;
+    order: 2;
+  }
+
+  memory-game-two {
+    gap: 0.5rem 1rem;
+    order: 3;
+  }
+}
+
+@media (max-width: 880px) {
+  /* two-players */
+
   /* game-1-play.html */
   .display-game-1-play {
     display: none;
   }
 
-
-/* .player-photo-name {
+  /* .player-photo-name {
   flex-direction: row;
 } */
-  
 }
 
-
-@media (max-width: 765px){
+@media (max-width: 765px) {
   /* login-screen */
   .title-and-players {
-  flex-direction: column;
+    flex-direction: column;
   }
-  
+
   .container-two-players {
-  flex-direction: column;
-  gap: 2rem;
+    flex-direction: column;
+    gap: 2rem;
   }
   /* two-players */
   .display-two-players {
     display: none;
   }
-  
+
   .mobile-btn-confirm {
     display: block;
   }
-  
-  #right{
-   margin: 1rem;
+
+  #right {
+    margin: 1rem;
   }
-  
+
   .player-column {
     display: flex;
     flex-direction: column;
     align-items: center;
   }
-  
+
   .choice-animal {
     order: 1;
   }
-  
+
   .player-1 {
     order: 2;
   }
-  
+
   .player-2 {
     order: 3;
-  } 
-
+  }
 }
 
-@media (max-width: 750px){
+@media (max-width: 750px) {
   /* one-player */
   .display-one-player {
     display: none;
   }
   .mobile-one {
-  display: block;
+    display: block;
   }
-  
+
   .player-title {
-  text-align: center;
+    text-align: center;
   }
-  
-  .player-photo-name img, .player-photo-name p {
+
+  .player-photo-name img,
+  .player-photo-name p {
     margin-right: 0;
   }
-  
+
   .container-one-player {
     flex-direction: column;
   }

@@ -17,6 +17,11 @@ const imageAnimalTwo = document.querySelector('[data-image-animal-two]');
 const pointsStore1 = [];
 const pointsStore2 = [];
 
+const btnPlayAgain = document.querySelector('[play-again]');
+const btnBackToLogin = document.querySelector('[back-to-login]');
+
+
+
 let player;
 let rafael;
 let cardCounter = 0;
@@ -41,12 +46,39 @@ const createElement = (tag, className) => {
     return element;
 }
 
+const showWarningScreen = () => {
+    const containerWarningScreen = document.querySelector('.container-warning-screen');
+    containerWarningScreen.style.display = 'block';
+
+}
+
+const checkPoint = (name, pointStore) => {
+    if(pointStore.hasOwnProperty(name)) {
+       return `${pointStore[name]}`;
+}
+}
+
+
+const congratulateTheWinner = (pointsPlayer1, pointsPlayer2) => {
+    let congratulateWinner = document.querySelector('[congratulate-winner]');
+    const animalPlayer1 = checkPoint(pointsPlayer1, pointsStore1);
+    const animalPlayer2 = checkPoint(pointsPlayer2, pointsStore2);
+    
+    if(animalPlayer1 > animalPlayer2) {
+        congratulateWinner.textContent = ` ${localStorage.getItem('Nome of the animal p1')}`;
+        
+    } else if (animalPlayer2 > animalPlayer1) {
+        congratulateWinner.textContent = ` ${localStorage.getItem('Nome of the animal p2')}`;
+    } else if (animalPlayer1 === animalPlayer2) {
+        congratulateWinner.textContent = "empatou glr";
+    }
+}
 const checkEndGame  = () => {
     const disableCards = document.querySelectorAll('.disabled-card');
-    console.log("Aqui está o disable", disableCards);
     if (disableCards.length === 20){
+        congratulateTheWinner();
         setTimeout(() => {
-            alert('Parabéns, você conseguiu!');
+            showWarningScreen();
         }, 2000);
     }
 }
@@ -219,3 +251,12 @@ window.onload = () => {
     
     loadGame();
 };
+
+btnPlayAgain.addEventListener('click', () => {
+    location.reload()
+});
+    
+btnBackToLogin.addEventListener('click', () => {
+    window.location.href = '../html/login-screen.html';
+});
+    
