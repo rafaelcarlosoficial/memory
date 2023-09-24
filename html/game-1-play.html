@@ -23,7 +23,7 @@
 }
 </style>
 <body>
-<div class="container-memory-game">
+    <div class="container-memory-game">
     <div class="hit-card-memory">
         <div class="player-title" id="left">
             <h3 class="text-player" >Player 1</h3>
@@ -73,7 +73,34 @@
     <div class="memory-game">
     
     </div>
-</div>
+    </div>
+    <div class="container-warning-screen">
+    <img src="../images/penguin-warning.png" class="warning-image" />
+    <div class="warning-screen">
+      <div class="container-message">
+        <h1 class="congratulations-message">
+          Congratulations<strong class="marine-animal" congratulate-winner> </strong>
+        </h1>
+        <div class="buttons">
+          <button class="btn warning-btn" play-again>
+            Play again
+            <ion-icon
+              name="play-circle"
+              alt="Ícone de jogar novamente"
+            ></ion-icon>
+          </button>
+          <button class="btn warning-btn" back-to-login>
+            Back to login
+            <ion-icon
+              name="arrow-back-circle"
+              alt="Ícone de voltar"
+            ></ion-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+    </div>
+
     <script src="../js/game-teste.js"></script>
 </body>
 </html>

@@ -551,14 +551,22 @@ h2 {
   /* two-players */
 
   /* game-1-play.html */
+  
+  
+  .container-memory-game {
+    flex-direction: column;
+  }
+  
   .display-game-1-play {
     display: none;
   }
+  #hitcards {
+    display: none;
+  }
 
-  /* .player-photo-name {
-  flex-direction: row;
-} */
 
+
+/* tela do warning-screen */
 .warning-image {
   transform: translateX(31vw);
   z-index: 0;
@@ -567,8 +575,19 @@ h2 {
 .warning-screen {
   transform: translateY(-60vw) translateX(16vw);
 }
+
+
 }
 
+@media (max-width: 850px) {
+  .hit-card-memory {
+    display: contents;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+} 
 @media (max-width: 870px) {
   .container-message {
     margin-left: 1rem;
