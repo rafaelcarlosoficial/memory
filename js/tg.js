@@ -63,20 +63,24 @@ const congratulateTheWinner = (pointsPlayer1, pointsPlayer2) => {
     let congratulateWinner = document.querySelector('[congratulate-winner]');
     const animalPlayer1 = checkPoint(pointsPlayer1, pointsStore1);
     const animalPlayer2 = checkPoint(pointsPlayer2, pointsStore2);
-    
+    console.log(animalPlayer1);
+    console.log(animalPlayer2);
     if(animalPlayer1 > animalPlayer2) {
         congratulateWinner.textContent = ` ${localStorage.getItem('Nome of the animal p1')}`;
-        
     } else if (animalPlayer2 > animalPlayer1) {
         congratulateWinner.textContent = ` ${localStorage.getItem('Nome of the animal p2')}`;
     } else if (animalPlayer1 === animalPlayer2) {
         congratulateWinner.textContent = "empatou glr";
+    } else if (animalPlayer1 === undefined) {
+        congratulateWinner.textContent = ` ${localStorage.getItem('Nome of the animal p2')}`;
+    } else if (animalPlayer2 === undefined) {
+        congratulateWinner.textContent = ` ${localStorage.getItem('Nome of the animal p1')}`;
     }
 }
 const checkEndGame  = () => {
     const disableCards = document.querySelectorAll('.disabled-card');
     if (disableCards.length === 20){
-        congratulateTheWinner();
+       congratulateTheWinner(nameAnimal, nameAnimalTwo);
         setTimeout(() => {
             showWarningScreen();
         }, 2000);

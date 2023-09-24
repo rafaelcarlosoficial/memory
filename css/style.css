@@ -481,14 +481,30 @@ h2 {
   .player-photo-name img {
     margin-right: 0.7rem;
   }
+ /* warning-screen */
+.warning-screen {
+  transform: translateY(-25vw) translateX(10vw);
 }
-
+.container-message{
+  margin-left: 2rem;
+}
+}
+@media (max-width: 980px){
+  .warning-screen {
+    transform: translateY(-25vw) translateX(-3vw);
+  }
+  
+  .warning-image {
+    transform: translateX(7vw);
+  }
+  
+}
 @media (max-width: 950px) {
   /* two-players */
   .text-player,
   .animal-text,
   .btn {
-    font-size: var(--fontSize-title-4);
+    font-size: var(--fontSize-title-2);
   }
 
   /* game-1-play.html */
@@ -531,7 +547,7 @@ h2 {
   }
 }
 
-@media (max-width: 880px) {
+@media (max-width: 881px) {
   /* two-players */
 
   /* game-1-play.html */
@@ -542,6 +558,25 @@ h2 {
   /* .player-photo-name {
   flex-direction: row;
 } */
+
+.warning-image {
+  transform: translateX(31vw);
+  z-index: 0;
+}
+
+.warning-screen {
+  transform: translateY(-60vw) translateX(16vw);
+}
+}
+
+@media (max-width: 870px) {
+  .container-message {
+    margin-left: 1rem;
+}
+.warning-screen {
+  transform: translateY(-65vw) translateX(16vw);
+}
+
 }
 
 @media (max-width: 765px) {
@@ -586,6 +621,10 @@ h2 {
   }
 }
 
+
+
+
+
 @media (max-width: 750px) {
   /* one-player */
   .display-one-player {
@@ -611,3 +650,57 @@ h2 {
     order: 2;
   }
 }
+
+@media (max-width: 720px) {
+  .warning-screen {
+    transform: translateY(-69vw) translateX(10vw);
+}
+.warning-image {
+  transform: translateX(28vw);
+  z-index: 0;
+}
+
+}
+
+@media (max-width: 650px) {
+.warning-image {
+  transform: translateX(25vw);
+}
+.warning-screen {
+  transform: translateY(-77vw) translateX(4vw);
+}
+.container-message {
+  margin-left: 0rem;
+}
+
+}
+
+@media (max-width: 600px) {
+.warning-image {
+  transform: translateX(25vw);
+}
+.warning-screen {
+  transform: translateY(-83vw) translateX(1vw);
+}
+.container-message {
+  margin-left: 0rem;
+}
+}
+@media (max-width: 580px) {
+.warning-image {
+  transform: translateX(25vw);
+}
+.warning-screen {
+  transform: translateY(-83vw) translateX(1vw);
+}
+
+}
+
+@media (max-width: 520px) {
+  .warning-screen {
+    transform: translateY(-107vw) translateX(1vw);
+}
+}
+
+
+
