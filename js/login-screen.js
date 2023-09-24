@@ -10,7 +10,7 @@
     window.location.href = '../html/two-players.html';
  });
  
- 
+ localStorage.clear();
  
  
  

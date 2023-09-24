@@ -1,16 +1,16 @@
-const containerMemoryGame = document.querySelector(".memory-game-two");
+const containerMemoryGame = document.querySelector('[container-memory-game]');
 const cardStore = document.querySelectorAll('[store-the-card]');
 const wonCards = document.querySelectorAll('[data-hit]');
 
 const player1 = document.querySelector('[data-player-1]');
-const hitCardsPlayer1 = document.querySelector('.hit-cards-two[data-player-1]');
+const hitCardsPlayer1 = document.querySelector('[data-play-1]');
 const play1 = document.querySelector('[player-1]');
 const nameAnimal1 = document.querySelector('[data-name-animal]');
 const imageAnimal1 = document.querySelector('[data-image-animal]');
 const pointStoragePlayer1 = [];
 
 const player2 = document.querySelector('[data-player-2]');
-const hitCardsPlayer2 = document.querySelector('.hit-cards-two[data-player-2]');
+const hitCardsPlayer2 = document.querySelector('.hit-cards-two[data-play-2]');
 const play2 = document.querySelector('[player-2]');
 const nameAnimal2 = document.querySelector('[data-name-animal-two]');
 const imageAnimal2 = document.querySelector('[data-image-animal-two]');
@@ -22,6 +22,9 @@ const btnBackToLogin = document.querySelector('[back-to-login]');
 let player;
 let keepPlaying;
 let changePlayersTurn = true;
+let twoPlayers;
+let firstCard = '';
+let secondCard = '';
 
 const cards = [
     "demon",
@@ -150,20 +153,15 @@ const checkIftisequal = (hitCardsPlayer, score, pointStorage) => {
     }
 }
 
-let firstCard = '';
-let secondCard = '';
+
 const changeTheColor = (player, currentText, imageOfTheAnimal, varColor) => {
     player.style.color = `var(--${varColor})`;
     currentText.style.color = `var(--${varColor})`;
     imageOfTheAnimal.style.borderColor = `var(--${varColor})`;
 }
 
-const revealCard = ({target}) => {
-   
-    if(target.parentNode.className.includes('reveal-card')) return;
-    if(firstCard === '') {
-    target.parentNode.classList.add('reveal-card');
-    firstCard = target.parentNode;
+
+const changeTheColorOfThePlayersTurn = () => {
     if(changePlayersTurn === true){
         changeTheColor(play2, nameAnimal2, imageAnimal2, 'brown');
         changeTheColor(play1, nameAnimal1, imageAnimal1, 'orange');
@@ -171,28 +169,45 @@ const revealCard = ({target}) => {
         changeTheColor(play1, nameAnimal1, imageAnimal1, 'brown');
         changeTheColor(play2, nameAnimal2, imageAnimal2, 'orange');
     }
-    
+
+}
+
+const revealCard = ({ target }) => {
+    console.log(firstCard)
+    if(target.parentNode.className.includes('reveal-card')) return;
+    if(firstCard === '') {
+        target.parentNode.classList.add('reveal-card');
+        firstCard = target.parentNode;
+        console.log(firstCard)
+        if(twoPlayers) {
+            changeTheColorOfThePlayersTurn();
+        }
     } else if (secondCard === '') {
         target.parentNode.classList.add('reveal-card');
         secondCard = target.parentNode;
-        if(changePlayersTurn === true) {
-            checkIftisequal(hitCardsPlayer1, nameAnimal1, pointStoragePlayer1);
-            if(keepPlaying === true){
-                changePlayersTurn = true;
-                keepPlaying = '';
-            } else {
-                changePlayersTurn = false;
+        checkIftisequal(hitCardsPlayer1, nameAnimal1, pointStoragePlayer1);
+        
+        if(twoPlayers){
+            console.log("entrou")
+            if(changePlayersTurn === true) {
+                checkIftisequal(hitCardsPlayer1, nameAnimal1, pointStoragePlayer1);
+                if(keepPlaying === true){
+                    changePlayersTurn = true;
+                    keepPlaying = '';
+                } else {
+                    changePlayersTurn = false;
+                }
+                
+            } else if (changePlayersTurn === false) {
+                checkIftisequal(hitCardsPlayer2, nameAnimal2, pointStoragePlayer2);
+                if(keepPlaying === true){
+                    changePlayersTurn = false;
+                    keepPlaying = '';
+                } else {
+                    changePlayersTurn = true;
+                }
+                
             }
-            
-        } else if (changePlayersTurn === false) {
-            checkIftisequal(hitCardsPlayer2, nameAnimal2, pointStoragePlayer2);
-            if(keepPlaying === true){
-                changePlayersTurn = false;
-                keepPlaying = '';
-            } else {
-                changePlayersTurn = true;
-            }
-            
         }
         
     }
@@ -214,6 +229,9 @@ const createCard = (character) => {
     
     return card;    
 }
+const storeCardsInContainer = (divContainer, card) => {
+    divContainer.appendChild(card)
+}
 
 const loadGame = () => {
     const duplicateCharacters = [...cards, ...cards];
@@ -222,19 +240,31 @@ const loadGame = () => {
     
     shuflledArray.forEach((character) => {
         const card = createCard(character);
+        
         containerMemoryGame.appendChild(card);
     });
 }
 
+const uploadPlayersInformations = (nameOfAnimal, imageAnimal, nameItem, imageItem ) => {
+    nameOfAnimal.innerHTML = localStorage.getItem(`${nameItem}`)
+    imageAnimal.src = localStorage.getItem(`${imageItem}`)
+};
 
 window.onload = () => {
-    nameAnimal1.innerHTML = localStorage.getItem('player1 animal name');
-    imageAnimal1.src = localStorage.getItem('player1 animal image');
-    nameAnimal2.innerHTML = localStorage.getItem('player2 animal name');
-    imageAnimal2.src = localStorage.getItem('player2 animal image');
+    if(window.location.href.includes('game-1-play.html')) {
+        uploadPlayersInformations(nameAnimal1, imageAnimal1, 'player1 animal name', 'player1 animal image');
+        twoPlayers = false;
+        loadGame();
+    }
+    else if (window.location.href.includes('game-2-play.html')){
+        uploadPlayersInformations(nameAnimal1, imageAnimal1, 'player1 animal name', 'player1 animal image');
+        uploadPlayersInformations(nameAnimal2, imageAnimal2, 'player2 animal name', 'player2 animal image');
+        twoPlayers = true;
+        loadGame();     
+    }
     
-    loadGame();
-};
+
+}
 
 btnPlayAgain.addEventListener('click', () => {
     location.reload()
