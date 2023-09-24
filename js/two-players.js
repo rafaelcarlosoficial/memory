@@ -50,8 +50,8 @@ const changeAnimal = (element) => {
     profileImage.setAttribute("src", image);
     profileName.innerHTML = name;
     
-    localStorage.setItem('Nome of the animal p1', name);
-    localStorage.setItem('Image of animal p1', image)
+    localStorage.setItem('player1 animal name', name);
+    localStorage.setItem('player1 animal image', image)
     
     if (avatar.style.transform.includes("translateX(-60vw)")) {
       setTimeout(() => {
@@ -127,8 +127,8 @@ const changeAnimalTwo = (element) => {
     profileImage.setAttribute("src", image);
     profileName.innerHTML = name;
     
-    localStorage.setItem('Nome of the animal p2', name);
-    localStorage.setItem('Image of animal p2', image)
+    localStorage.setItem('player2 animal name', name);
+    localStorage.setItem('player2 animal image', image)
     
     if (avatarTwo.style.transform.includes("translateX(60vw)")) {
       setTimeout(() => {

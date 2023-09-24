@@ -1,31 +1,27 @@
-const memoryGame = document.querySelector(".memory-game-two");
-const cardStore = document.querySelectorAll('[data-store]');
-const hit = document.querySelectorAll('[data-hit]');
+const containerMemoryGame = document.querySelector(".memory-game-two");
+const cardStore = document.querySelectorAll('[card-store]');
+const wonCards = document.querySelectorAll('[data-hit]');
 
 const player1 = document.querySelector('[data-player-1]');
 const hitCardsPlayer1 = document.querySelector('.hit-cards-two[data-player-1]');
 const play1 = document.querySelector('[player-1]');
-const nameAnimal = document.querySelector('[data-name-animal]');
-const imageAnimal = document.querySelector('[data-image-animal]');
+const nameAnimal1 = document.querySelector('[data-name-animal]');
+const imageAnimal1 = document.querySelector('[data-image-animal]');
+const pointStoragePlayer1 = [];
 
 const player2 = document.querySelector('[data-player-2]');
 const hitCardsPlayer2 = document.querySelector('.hit-cards-two[data-player-2]');
 const play2 = document.querySelector('[player-2]');
-const nameAnimalTwo = document.querySelector('[data-name-animal-two]');
-const imageAnimalTwo = document.querySelector('[data-image-animal-two]');
-
-const pointsStore1 = [];
-const pointsStore2 = [];
+const nameAnimal2 = document.querySelector('[data-name-animal-two]');
+const imageAnimal2 = document.querySelector('[data-image-animal-two]');
+const pointStoragePlayer2 = [];
 
 const btnPlayAgain = document.querySelector('[play-again]');
 const btnBackToLogin = document.querySelector('[back-to-login]');
 
-
-
 let player;
-let rafael;
-let cardCounter = 0;
-let teste = true;
+let keepPlaying;
+let changePlayersTurn = true;
 
 const cards = [
     "demon",
@@ -49,38 +45,34 @@ const createElement = (tag, className) => {
 const showWarningScreen = () => {
     const containerWarningScreen = document.querySelector('.container-warning-screen');
     containerWarningScreen.style.display = 'block';
-
 }
 
-const checkPoint = (name, pointStore) => {
-    if(pointStore.hasOwnProperty(name)) {
-       return `${pointStore[name]}`;
-}
+const checkNumberOfPoints = (currentPoint, pointStorage) => {
+    if(pointStorage.hasOwnProperty(currentPoint)) {
+       return `${pointStorage[currentPoint]}`;
+    }
 }
 
-
-const congratulateTheWinner = (pointsPlayer1, pointsPlayer2) => {
+const congratulateTheWinner = (player1Points, player2Points) => {
     let congratulateWinner = document.querySelector('[congratulate-winner]');
-    const animalPlayer1 = checkPoint(pointsPlayer1, pointsStore1);
-    const animalPlayer2 = checkPoint(pointsPlayer2, pointsStore2);
-    console.log(animalPlayer1);
-    console.log(animalPlayer2);
-    if(animalPlayer1 > animalPlayer2) {
-        congratulateWinner.textContent = ` ${localStorage.getItem('Nome of the animal p1')}`;
-    } else if (animalPlayer2 > animalPlayer1) {
-        congratulateWinner.textContent = ` ${localStorage.getItem('Nome of the animal p2')}`;
-    } else if (animalPlayer1 === animalPlayer2) {
+    const firstPlayerScore = checkNumberOfPoints(player1Points, pointStoragePlayer1);
+    const secondPlayerScore = checkNumberOfPoints(player2Points, pointStoragePlayer2);
+    if(firstPlayerScore > secondPlayerScore) {
+        congratulateWinner.textContent = ` ${localStorage.getItem('player1 animal name')}`;
+    } else if (secondPlayerScore > firstPlayerScore) {
+        congratulateWinner.textContent = ` ${localStorage.getItem('player2 animal name')}`;
+    } else if (firstPlayerScore === secondPlayerScore) {
         congratulateWinner.textContent = "empatou glr";
-    } else if (animalPlayer1 === undefined) {
-        congratulateWinner.textContent = ` ${localStorage.getItem('Nome of the animal p2')}`;
-    } else if (animalPlayer2 === undefined) {
-        congratulateWinner.textContent = ` ${localStorage.getItem('Nome of the animal p1')}`;
+    } else if (firstPlayerScore === undefined) {
+        congratulateWinner.textContent = ` ${localStorage.getItem('player2 animal name')}`;
+    } else if (secondPlayerScore === undefined) {
+        congratulateWinner.textContent = ` ${localStorage.getItem('player1 animal name')}`;
     }
 }
 const checkEndGame  = () => {
     const disableCards = document.querySelectorAll('.disabled-card');
     if (disableCards.length === 20){
-       congratulateTheWinner(nameAnimal, nameAnimalTwo);
+       congratulateTheWinner(nameAnimal1, nameAnimal2);
         setTimeout(() => {
             showWarningScreen();
         }, 2000);
@@ -88,10 +80,10 @@ const checkEndGame  = () => {
 }
 
 const storeCard = (character, hitCardsPlayer) => {
-    let cardStore = hitCardsPlayer.querySelectorAll('[data-store]');
-    let hit = hitCardsPlayer.querySelectorAll('[data-hit]');
+    let setOfCards = hitCardsPlayer.querySelectorAll('[card-store]');
+    let wonCard = hitCardsPlayer.querySelectorAll('[data-hit]');
     let allContainsDataCharacter = true;
-    cardStore.forEach((card) => {
+    setOfCards.forEach((card) => {
         if (!card.hasAttribute('data-character')){
             allContainsDataCharacter = false;
         }
@@ -99,54 +91,53 @@ const storeCard = (character, hitCardsPlayer) => {
     if(allContainsDataCharacter === true){
 
     const divCard = createElement('div', 'card hit-scale');
-    divCard.setAttribute('data-store', '');
+    divCard.setAttribute('card-store', '');
     divCard.setAttribute('data-character',character)
     
-    const divHit = createElement('div', 'face hit');
-    divHit.setAttribute('data-hit', '');
-    divHit.setAttribute('data-background', character)
-    // divHit.backgroundImage = 'none';
-    divHit.style.backgroundImage = `url(../images/${character}.png)`;
-    divCard.appendChild(divHit);
+    const divCardsWon = createElement('div', 'face hit');
+    divCardsWon.setAttribute('data-hit', '');
+    divCardsWon.setAttribute('data-background', character)
+    divCardsWon.style.backgroundImage = `url(../images/${character}.png)`;
+    divCard.appendChild(divCardsWon);
     
     hitCardsPlayer.appendChild(divCard);
     
     
     
-    } else if (cardStore.length > 0) {
+    } else if (setOfCards.length > 0) {
     
-    const cardtoSet = [...cardStore].find(card => !card.getAttribute('data-character'));
+    const cardtoSet = [...setOfCards].find(characterlessCard => !characterlessCard .getAttribute('data-character'));
     cardtoSet.setAttribute('data-character', character);
-    let hitSet = [...hit].find(hit => !hit.getAttribute('data-background'));
-    hitSet.setAttribute('data-background', character)
-    hitSet.style.backgroundImage = `url(../images/${character}.png`
+    let assignBackgroundtoImage = [...wonCard].find(bottomlessCard => !bottomlessCard.getAttribute('data-background'));
+    assignBackgroundtoImage.setAttribute('data-background', character)
+    assignBackgroundtoImage.style.backgroundImage = `url(../images/${character}.png`
     
     } 
     
     } 
  
-const showPoint = (name, pointStore) => {
-    if(pointStore.hasOwnProperty(name)) {
-        pointStore[name]++;
+const showPoint = (currentPoint, pointStorage) => {
+    if(pointStorage.hasOwnProperty(currentPoint)) {
+        pointStorage[currentPoint]++;
     
     } else {
-        pointStore[name] = 1;
+        pointStorage[currentPoint] = 1;
     }
-    name.innerHTML = `${pointStore[name]} point`;
+    currentPoint.innerHTML = `${pointStorage[currentPoint]} point`;
 }
     
-const checkIftisequal = (hitCardsPlayer, name, pointStore) => {
+const checkIftisequal = (hitCardsPlayer, score, pointStorage) => {
     const firstCharacter = firstCard.getAttribute('data-character');
     const secondCharacter = secondCard.getAttribute('data-character');
 
     if(firstCharacter === secondCharacter) {
-     rafael = true;
+     keepPlaying = true;
     
     firstCard.firstChild.classList.add('disabled-card');
     secondCard.firstChild.classList.add('disabled-card');
     firstCard = '';
     secondCard = '';
-    showPoint(name, pointStore);
+    showPoint(score, pointStorage);
     storeCard(firstCharacter, hitCardsPlayer);
     checkEndGame();
     } else {
@@ -161,20 +152,10 @@ const checkIftisequal = (hitCardsPlayer, name, pointStore) => {
 
 let firstCard = '';
 let secondCard = '';
-const brownColor = (player, namee, image) => {
-    player.style.color = 'var(--brown)';
-    namee.style.color = 'var(--brown)';
-    image.style.borderColor = 'var(--brown)'
-    //criar uma função que mude a cor com base em parametros, player name, image e color
-    
-
-}
-
-//cor laranja seria o nome mais adequado para função;
-const changeTheColor = (player, name, image) => {
-    player.style.color = 'var(--orange)';
-    name.style.color = 'var(--orange)';
-    image.style.borderColor = 'var(--orange)';
+const changeTheColor = (player, currentText, imageOfTheAnimal, varColor) => {
+    player.style.color = `var(--${varColor})`;
+    currentText.style.color = `var(--${varColor})`;
+    imageOfTheAnimal.style.borderColor = `var(--${varColor})`;
 }
 
 const revealCard = ({target}) => {
@@ -183,33 +164,33 @@ const revealCard = ({target}) => {
     if(firstCard === '') {
     target.parentNode.classList.add('reveal-card');
     firstCard = target.parentNode;
-    if(teste === true){
-        brownColor(play2, nameAnimalTwo, imageAnimalTwo);
-        changeTheColor(play1, nameAnimal, imageAnimal);
-    } else if( teste === false){
-        brownColor(play1, nameAnimal, imageAnimal)
-        changeTheColor(play2, nameAnimalTwo, imageAnimalTwo)
+    if(changePlayersTurn === true){
+        changeTheColor(play2, nameAnimal2, imageAnimal2, 'brown');
+        changeTheColor(play1, nameAnimal1, imageAnimal1, 'orange');
+    } else if(changePlayersTurn === false){
+        changeTheColor(play1, nameAnimal1, imageAnimal1, 'brown');
+        changeTheColor(play2, nameAnimal2, imageAnimal2, 'orange');
     }
     
     } else if (secondCard === '') {
         target.parentNode.classList.add('reveal-card');
         secondCard = target.parentNode;
-        if(teste === true) {
-            checkIftisequal(hitCardsPlayer1, nameAnimal, pointsStore1);
-            if(rafael === true){
-                teste = true;
-                rafael = '';
+        if(changePlayersTurn === true) {
+            checkIftisequal(hitCardsPlayer1, nameAnimal1, pointStoragePlayer1);
+            if(keepPlaying === true){
+                changePlayersTurn = true;
+                keepPlaying = '';
             } else {
-                teste = false;
+                changePlayersTurn = false;
             }
             
-        } else if (teste === false) {
-            checkIftisequal(hitCardsPlayer2, nameAnimalTwo, pointsStore2);
-            if(rafael === true){
-                teste = false;
-                rafael = '';
+        } else if (changePlayersTurn === false) {
+            checkIftisequal(hitCardsPlayer2, nameAnimal2, pointStoragePlayer2);
+            if(keepPlaying === true){
+                changePlayersTurn = false;
+                keepPlaying = '';
             } else {
-                teste = true;
+                changePlayersTurn = true;
             }
             
         }
@@ -219,7 +200,6 @@ const revealCard = ({target}) => {
 }
 
 const createCard = (character) => {
-    
     const card = createElement('div', 'card');
     const front = createElement('div', 'face front');
     const back = createElement('div', 'face back');
@@ -242,16 +222,16 @@ const loadGame = () => {
     
     shuflledArray.forEach((character) => {
         const card = createCard(character);
-        memoryGame.appendChild(card);
+        containerMemoryGame.appendChild(card);
     });
 }
 
 
 window.onload = () => {
-    nameAnimal.innerHTML = localStorage.getItem('Nome of the animal p1');
-    imageAnimal.src = localStorage.getItem('Image of animal p1');
-    nameAnimalTwo.innerHTML = localStorage.getItem('Nome of the animal p2');
-    imageAnimalTwo.src = localStorage.getItem('Image of animal p2');
+    nameAnimal1.innerHTML = localStorage.getItem('player1 animal name');
+    imageAnimal1.src = localStorage.getItem('player1 animal image');
+    nameAnimal2.innerHTML = localStorage.getItem('player2 animal name');
+    imageAnimal2.src = localStorage.getItem('player2 animal image');
     
     loadGame();
 };
