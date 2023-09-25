@@ -221,9 +221,6 @@ h2 {
   border-radius: var(--border-radius-2);
 }
 
-/* .animals img:hover {
-    border: 7px solid var(--black);
-} */
 
 /* one-player */
 .container-one-player {
@@ -365,9 +362,6 @@ h2 {
 }
 .alert-animal {
   color: var(--orange);
-  /* font-size: bolder;
-  position: absolute;
-  z-index: 999; */
 }
 /* warning-scrren */
 
@@ -384,15 +378,7 @@ h2 {
   top: 0;
   left: 0;
 }
-/* .warning-screen {
-  background-color: var(--black);
-  display: none;
-  flex-direction: row;
-  gap: 1px;
-  align-items: center;
-  border-radius: var(--border-radius-1);
-  margin-ontainer-messagetop: 9rem;
-} */
+
 .warning-screen {
   background-color: var(--black);
   display: inline-flex;
@@ -404,7 +390,7 @@ h2 {
   transform: translateY(-20vw) translateX(10vw);
 }
 
-.warning-btn:hover  {
+.warning-btn:hover {
   background-color: var(--light-orange);
 }
 .congratulations-message {
@@ -436,7 +422,6 @@ h2 {
   z-index: 3;
   position: relative;
 }
-
 
 .close-warning {
   font-size: 4rem;
@@ -481,23 +466,22 @@ h2 {
   .player-photo-name img {
     margin-right: 0.7rem;
   }
- /* warning-screen */
-.warning-screen {
-  transform: translateY(-25vw) translateX(10vw);
+  /* warning-screen */
+  .warning-screen {
+    transform: translateY(-25vw) translateX(10vw);
+  }
+  .container-message {
+    margin-left: 2rem;
+  }
 }
-.container-message{
-  margin-left: 2rem;
-}
-}
-@media (max-width: 980px){
+@media (max-width: 980px) {
   .warning-screen {
     transform: translateY(-25vw) translateX(-3vw);
   }
-  
+
   .warning-image {
     transform: translateX(7vw);
   }
-  
 }
 @media (max-width: 950px) {
   /* two-players */
@@ -548,15 +532,13 @@ h2 {
 }
 
 @media (max-width: 881px) {
-  /* two-players */
 
   /* game-1-play.html */
-  
-  
+
   .container-memory-game {
     flex-direction: column;
   }
-  
+
   .display-game-1-play {
     display: none;
   }
@@ -564,19 +546,15 @@ h2 {
     display: none;
   }
 
+  /* tela do warning-screen */
+  .warning-image {
+    transform: translateX(31vw);
+    z-index: 0;
+  }
 
-
-/* tela do warning-screen */
-.warning-image {
-  transform: translateX(31vw);
-  z-index: 0;
-}
-
-.warning-screen {
-  transform: translateY(-60vw) translateX(16vw);
-}
-
-
+  .warning-screen {
+    transform: translateY(-60vw) translateX(16vw);
+  }
 }
 
 @media (max-width: 850px) {
@@ -586,16 +564,14 @@ h2 {
     align-items: center;
     text-align: center;
   }
-
-} 
+}
 @media (max-width: 870px) {
   .container-message {
     margin-left: 1rem;
-}
-.warning-screen {
-  transform: translateY(-65vw) translateX(16vw);
-}
-
+  }
+  .warning-screen {
+    transform: translateY(-65vw) translateX(16vw);
+  }
 }
 
 @media (max-width: 765px) {
@@ -640,10 +616,6 @@ h2 {
   }
 }
 
-
-
-
-
 @media (max-width: 750px) {
   /* one-player */
   .display-one-player {
@@ -673,53 +645,50 @@ h2 {
 @media (max-width: 720px) {
   .warning-screen {
     transform: translateY(-69vw) translateX(10vw);
-}
-.warning-image {
-  transform: translateX(28vw);
-  z-index: 0;
-}
-
+  }
+  .warning-image {
+    transform: translateX(28vw);
+    z-index: 0;
+  }
 }
 
 @media (max-width: 650px) {
-.warning-image {
-  transform: translateX(25vw);
-}
-.warning-screen {
-  transform: translateY(-77vw) translateX(4vw);
-}
-.container-message {
-  margin-left: 0rem;
-}
-
+  .warning-image {
+    transform: translateX(25vw);
+  }
+  .warning-screen {
+    transform: translateY(-77vw) translateX(4vw);
+  }
+  .container-message {
+    margin-left: 0rem;
+  }
 }
 
 @media (max-width: 600px) {
-.warning-image {
-  transform: translateX(25vw);
-}
-.warning-screen {
-  transform: translateY(-83vw) translateX(1vw);
-}
-.container-message {
-  margin-left: 0rem;
-}
+  .warning-image {
+    transform: translateX(25vw);
+  }
+  .warning-screen {
+    transform: translateY(-83vw) translateX(1vw);
+  }
+  .container-message {
+    margin-left: 0rem;
+  }
+  .congratulations-message {
+    text-align: center;
+  }
 }
 @media (max-width: 580px) {
-.warning-image {
-  transform: translateX(25vw);
-}
-.warning-screen {
-  transform: translateY(-83vw) translateX(1vw);
-}
-
+  .warning-image {
+    transform: translateX(25vw);
+  }
+  .warning-screen {
+    transform: translateY(-83vw) translateX(1vw);
+  }
 }
 
 @media (max-width: 520px) {
   .warning-screen {
     transform: translateY(-107vw) translateX(1vw);
+  }
 }
-}
-
-
-
