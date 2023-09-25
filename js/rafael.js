@@ -1,54 +1,24 @@
 const animals = document.querySelectorAll("[data-animal]");
 const avatar = document.querySelector("[data-avatar]");
 const btnContinue = document.querySelector("[btn-continue]");
-//mudar no two-players o nome das buttons;
+
 let btnConfirmContinue, avatarTwo, btnConfirmTwo, btnConfirm, twoPlayers
 btnConfirm = document.querySelector("[btn-confirm]");
+
 window.onload = () => {
   if (window.location.href.includes("two-players.html")) {
     btnConfirmContinue = document.querySelector("[btn-confirm-continue]");
     avatarTwo = document.querySelector("[data-avatar-two]");
     btnConfirmTwo = document.querySelector("[btn-confirm-two]");
-    // btnConfirm = document.querySelectorAll("[btn-confirm]");
     btnConfirmContinue.addEventListener("click", confirmTheChoiceTwo);
     twoPlayers = true;
   } else {
     twoPlayers = false;
-    // btnConfirm = document.querySelector("[btn-confirm]");
   }
 };
-console.log("btnConfirmTwo", btnConfirm);
+
 const changeAvatar = (name, avatar) => {
-  switch (name) {
-    case "Seahorse":
-      avatar.setAttribute("src", "../images/Seahorse-avatar.png");
-      break;
-    case "Beluga":
-      avatar.setAttribute("src", "../images/beluga-avatar.png");
-      break;
-    case "White shark":
-      avatar.setAttribute("src", "../images/white-shark-avatar.png");
-      break;
-    case "Octopus":
-      avatar.setAttribute("src", "../images/octopus-avatar.png");
-      break;
-    case "Penguin":
-      avatar.setAttribute("src", "../images/penguim-avatar.png");
-      break;
-    case "Blue whale":
-      avatar.setAttribute("src", "../images/blue-whale-avatar.png");
-      break;
-    case "Krill":
-      avatar.setAttribute("src", "../images/krill-avatar.png");
-      break;
-    case "Sealion":
-      avatar.setAttribute("src", "../images/sealion-avatar.png");
-      break;
-    case "Dolphin":
-      avatar.setAttribute("src", "../images/dolphin-avatar.png");
-      break;
-    default:
-  }
+    avatar.setAttribute('src', `../images/${name}-avatar.png`)
 };
 
 const changeAnimal = (element) => {
@@ -109,7 +79,7 @@ animals.forEach((animal) => {
   animal.addEventListener("click", animalClick);
 });
 
-// button confirm
+
 const checkConfirmButton = (btnConfirmTwo, btnConfirmContinue) => {
   if (
     btnConfirmTwo.textContent === "Edit" &&
@@ -200,16 +170,10 @@ const confirmTheChoice = (click) => {
       animal.removeEventListener("click", animalClick);
     });
     
-    console.log("aquiiiiiiiii");
-    console.log("twoPlayers", twoPlayers);
     if(!twoPlayers){
-        console.log("entrou aqui")
        btnContinue.style.display = "block";
     }
-    
-    
-    // btnConfirmContinue.classList.remove("display-btn");
-    // btnConfirmContinue.style.display = "block";
+
   }
 };
 
@@ -219,28 +183,27 @@ btnContinue.addEventListener("click", () => {
   window.location.href = "../html/game-1-play.html";
 });
 
-//button confirm two
+const customizetheButton = (button, colorName, textContent) => {
+    button.style.backgroundColor = `var(--${colorName})`;
+    button.textContent = 'Confirm';
+}
 
 const confirmTheChoiceTwo = (click) => {
   const confirm = click.target;
   if (confirm.textContent === "Edit") {
-    confirm.style.backgroundColor = "var(--orange)";
-    confirm.textContent = "Confirm";
+    customizetheButton(confirm, 'orange', 'Confirm');
     checkConfirmButton(btnConfirm, btnConfirmContinue);
     btnContinue.style.display = "block";
     animals.forEach((animal) => {
       animal.addEventListener("click", animalClickTwo);
     });
   } else {
-    confirm.style.backgroundColor = "var(--light-orange)";
-    confirm.textContent = "Edit";
-
+    customizetheButton(confirm, 'light-orange', 'Edit');
     animals.forEach((animal) => {
       animal.removeEventListener("click", animalClickTwo);
     });
 
     checkConfirmButton(btnConfirm, btnConfirmContinue);
-
     btnContinue.style.display = "block";
   }
 };

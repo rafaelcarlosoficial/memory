@@ -6,7 +6,7 @@ const btnContinue = document.querySelector("[btn-continue]");
 const btnConfirmContinue = document.querySelector("[btn-confirm-continue]");
 
 console.log("btnConfirmTwo", btnConfirm);
-const changeAvatar = (name, avatar) => {
+const changeTheCharacter = (name, avatar) => {
   switch (name) {
     case "Seahorse":
       avatar.setAttribute("src", "../images/Seahorse-avatar.png");
@@ -56,7 +56,7 @@ const changeAnimal = (element) => {
   if (avatar.style.transform.includes("translateX(-60vw)")) {
     setTimeout(() => {
       avatar.style.transform = "translateX(0)";
-      changeAvatar(name, avatar);
+      changeTheCharacter(name, avatar);
     }, 100);
   } else {
     setTimeout(() => {
@@ -64,7 +64,7 @@ const changeAnimal = (element) => {
     }, 100);
 
     setTimeout(() => {
-      changeAvatar(name, avatar);
+      changeTheCharacter(name, avatar);
     }, 350);
 
     setTimeout(() => {
@@ -134,7 +134,7 @@ const changeAnimalTwo = (element) => {
   if (avatarTwo.style.transform.includes("translateX(60vw)")) {
     setTimeout(() => {
       avatarTwo.style.transform = "translateX(0)";
-      changeAvatar(name, avatarTwo);
+      changeTheCharacter(name, avatarTwo);
     }, 100);
   } else {
     setTimeout(() => {
@@ -142,7 +142,7 @@ const changeAnimalTwo = (element) => {
     }, 100);
 
     setTimeout(() => {
-      changeAvatar(name, avatarTwo);
+      changeTheCharacter(name, avatarTwo);
     }, 350);
 
     setTimeout(() => {
