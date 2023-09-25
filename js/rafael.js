@@ -1,10 +1,22 @@
 const animals = document.querySelectorAll("[data-animal]");
 const avatar = document.querySelector("[data-avatar]");
-const avatarTwo = document.querySelector("[data-avatar-two]");
-const btnConfirm = document.querySelector("[btn-confirm]");
 const btnContinue = document.querySelector("[btn-continue]");
-const btnConfirmContinue = document.querySelector("[btn-confirm-continue]");
-
+//mudar no two-players o nome das buttons;
+let btnConfirmContinue, avatarTwo, btnConfirmTwo, btnConfirm, twoPlayers
+btnConfirm = document.querySelector("[btn-confirm]");
+window.onload = () => {
+  if (window.location.href.includes("two-players.html")) {
+    btnConfirmContinue = document.querySelector("[btn-confirm-continue]");
+    avatarTwo = document.querySelector("[data-avatar-two]");
+    btnConfirmTwo = document.querySelector("[btn-confirm-two]");
+    // btnConfirm = document.querySelectorAll("[btn-confirm]");
+    btnConfirmContinue.addEventListener("click", confirmTheChoiceTwo);
+    twoPlayers = true;
+  } else {
+    twoPlayers = false;
+    // btnConfirm = document.querySelector("[btn-confirm]");
+  }
+};
 console.log("btnConfirmTwo", btnConfirm);
 const changeAvatar = (name, avatar) => {
   switch (name) {
@@ -176,24 +188,35 @@ const confirmTheChoice = (click) => {
   } else {
     confirm.style.backgroundColor = "var(--light-orange)";
     confirm.textContent = "Edit";
-
-    animals.forEach((animal) => {
-      animal.addEventListener("click", animalClickTwo);
-    });
-    checkConfirmButton(btnConfirm, btnConfirmContinue);
+    if(twoPlayers){ 
+        animals.forEach((animal) => {
+        animal.addEventListener("click", animalClickTwo);
+        });
+        checkConfirmButton(btnConfirm, btnConfirmContinue);
+        btnConfirmContinue.classList.remove("display-btn");
+        btnConfirmContinue.style.display = "block";
+    }
     animals.forEach((animal) => {
       animal.removeEventListener("click", animalClick);
     });
-
-    btnConfirmContinue.classList.remove("display-btn");
-    btnConfirmContinue.style.display = "block";
+    
+    console.log("aquiiiiiiiii");
+    console.log("twoPlayers", twoPlayers);
+    if(!twoPlayers){
+        console.log("entrou aqui")
+       btnContinue.style.display = "block";
+    }
+    
+    
+    // btnConfirmContinue.classList.remove("display-btn");
+    // btnConfirmContinue.style.display = "block";
   }
 };
 
 btnConfirm.addEventListener("click", confirmTheChoice);
 
 btnContinue.addEventListener("click", () => {
-  window.location.href = "../html/game-2-play.html";
+  window.location.href = "../html/game-1-play.html";
 });
 
 //button confirm two
@@ -222,4 +245,4 @@ const confirmTheChoiceTwo = (click) => {
   }
 };
 
-btnConfirmContinue.addEventListener("click", confirmTheChoiceTwo);
+

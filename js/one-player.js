@@ -42,7 +42,7 @@ const changeAnimal = (element) => {
     const image = animal.getAttribute("src");
     localStorage.setItem('Nome do Animal', name);
     localStorage.setItem('Image of animal', image)
-    // window.location = '../html/game-1-play.html';
+
     const profileName = document.querySelector("[data-name]");
     const profileImage = document.querySelector("[data-image]");
   
@@ -114,6 +114,7 @@ const confirmTheChoice = (click) => {
       animals.forEach((animal) => {
         animal.removeEventListener("click", animalClick);
       });
+      console.log("passou aqui!")
       btnContinue.style.display = "block";
       
     }

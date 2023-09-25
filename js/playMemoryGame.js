@@ -141,8 +141,6 @@ const checkIftisequal = (hitCardsPlayer, score, pointStorage) => {
     checkEndGame();
     } else {
         setTimeout(() => {
-            console.log(firstCard);
-            console.log(secondCard);
             firstCard.classList.remove('reveal-card');
             secondCard.classList.remove('reveal-card');
             firstCard = '';
@@ -181,7 +179,6 @@ const revealCard = ({ target }) => {
         target.parentNode.classList.add('reveal-card');
         firstCard = target.parentNode;
         
-        console.log("TÁ AQUI", firstCard)
         if(twoPlayers) {
             changeTheColorOfThePlayersTurn();
         }
@@ -193,7 +190,6 @@ const revealCard = ({ target }) => {
         if(!twoPlayers) { 
         checkIftisequal(hitCardsPlayer1, nameAnimal1, pointStoragePlayer1);
         } else { 
-            console.log("entrou")
             if(changePlayersTurn === true) {
                 checkIftisequal(hitCardsPlayer1, nameAnimal1, pointStoragePlayer1);
                 if(keepPlaying === true){
@@ -268,7 +264,6 @@ window.onload = () => {
         loadGame();     
     }
     
-
 }
 
 btnPlayAgain.addEventListener('click', () => {
