@@ -10,7 +10,7 @@ const imageAnimal1 = document.querySelector('[data-image-animal]');
 const pointStoragePlayer1 = [];
 
 const player2 = document.querySelector('[data-player-2]');
-const hitCardsPlayer2 = document.querySelector('.hit-cards-two[data-play-2]');
+const hitCardsPlayer2 = document.querySelector('[data-play-2]');
 const play2 = document.querySelector('[player-2]');
 const nameAnimal2 = document.querySelector('[data-name-animal-two]');
 const imageAnimal2 = document.querySelector('[data-image-animal-two]');
@@ -23,8 +23,6 @@ let player;
 let keepPlaying;
 let changePlayersTurn = true;
 let twoPlayers;
-let firstCard = '';
-let secondCard = '';
 
 const cards = [
     "demon",
@@ -152,6 +150,8 @@ const checkIftisequal = (hitCardsPlayer, score, pointStorage) => {
         }, 900);
     }
 }
+let firstCard = '';
+let secondCard = '';
 
 
 const changeTheColor = (player, currentText, imageOfTheAnimal, varColor) => {
@@ -173,21 +173,26 @@ const changeTheColorOfThePlayersTurn = () => {
 }
 
 const revealCard = ({ target }) => {
-    console.log(firstCard)
+   
     if(target.parentNode.className.includes('reveal-card')) return;
+    
     if(firstCard === '') {
+        
         target.parentNode.classList.add('reveal-card');
         firstCard = target.parentNode;
-        console.log(firstCard)
+        
+        console.log("TÁ AQUI", firstCard)
         if(twoPlayers) {
             changeTheColorOfThePlayersTurn();
         }
-    } else if (secondCard === '') {
+    } 
+    
+    else if (secondCard === '') {
         target.parentNode.classList.add('reveal-card');
         secondCard = target.parentNode;
+        if(!twoPlayers) { 
         checkIftisequal(hitCardsPlayer1, nameAnimal1, pointStoragePlayer1);
-        
-        if(twoPlayers){
+        } else { 
             console.log("entrou")
             if(changePlayersTurn === true) {
                 checkIftisequal(hitCardsPlayer1, nameAnimal1, pointStoragePlayer1);
