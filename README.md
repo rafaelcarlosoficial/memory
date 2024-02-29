@@ -7,9 +7,34 @@
 4. Implementação da interatividade pelo Javascript
 
 ### Prototipagem
- Eu desenvolvi o projeto usando como referência espécies marinhas. As imagens foram geradas através de inteligência artificial, incluindo o Leonardo.AI, BlueWillow e lexica.ai. Algumas imagens eu mesmo criei, enquanto outras encontrei na galeria das próprias plataformas de inteligência artificial. Depois, formatei essas imagens no formato correto no Canvas e as incorporei ao projeto.
+O protótipo foi desenvolvido no Figma:
+<div>
+<img src="images/figma1.png" alt="Figma">
+<br/>
+<img src="images/figma2.png" alt="Figma">
+</div>
 
-O protótipo foi totalmente criado por mim. Utilizei como base jogos online disponíveis na internet, pesquisando vários para entender como o layout funcionava. Quanto à paleta de cores, baseei minhas decisões nas imagens. No final, optei por usar as cores marrom, laranja e azul claro.
+Para fazer a tela de login, eu me inspirei principalmente nesta tela do jogo online dos Jovens Titãs (Batalha de Saltos 2).
+
+<div>
+    <img src="images/titans1.png" alt="Titans">
+</div>
+<br>
+Para fazer a tela de escolher os animais, me baseei nessa imagem.
+
+<div>
+ <img src="images/ttitans2.png" alt="Titans">
+</div>
+
+As imagens usadas no projeto  foram geradas através de inteligência artificial, incluindo o ***Leonardo.AI, BlueWillow e lexica.ai**
+<div>
+ <img src="images/leonardo1.png" alt="Titans">
+ <img src="images/leonardo2.png" alt="Titans">
+ <img src="images/leonardo3.png" alt="Titans">
+
+</div>
+
+ Quanto à paleta de cores, baseei minhas decisões nas imagens. No final, escolhi por usar as cores marrom, laranja e azul claro.
 
 ### HTML
 
@@ -17,7 +42,7 @@ A parte mais rápida do projeto foi desenvolver o HTML. Como eu já havia dividi
 
 ### CSS
 
-Eu utilizei apenas um arquivo CSS para o projeto inteiro. O principal problema com o CSS foi a responsividade (já explico logo abaixo o porquê).
+Eu utilizei apenas um arquivo CSS para o projeto inteiro. O principal problema com o CSS foi a responsividade (já explico logo abaixo o motivo).
 
 ### JavaScript
 
@@ -29,18 +54,13 @@ Eu utilizei apenas um arquivo CSS para o projeto inteiro. O principal problema c
 
 3. A aplicação da mensagem de vencedor, verificação de quem ganhou e mudança de turno do jogador foram feitas por último.
 
-Observação: Inicialmente, eu havia criado um arquivo .js para cada tela, ou seja, 5 arquivos JavaScript para cada documento HTML. No entanto, após tudo começar a funcionar, reduzi e otimizei para apenas três arquivo. Mas não foi assim inicialmente.
 
 ## O PRINCIPAL PROBLEMA
 
 
 Um grande erro deste projeto foi na fase de prototipagem. Como era a minha primeira vez criando um projeto no Figma, não lembrei de priorizar a experiência móvel. Comecei criando a tela para desktop, mas depois percebi a necessidade de adaptar as imagens, o layout e proporcionar uma boa experiência para o usuário no mobile. Isso envolveu garantir que os botões fossem grandes o suficiente para toques precisos e tornar todo o design responsivo.
 
-<<<<<<< HEAD
-Porém, tive muita dificuldade em adaptar todo o conteúdo para telas pequenas. Eu tentei, mas não ficou bom. Ficou péssimo. Como resultado, **o projeto acabou com uma responsividade ruim**. No entanto, achei que ainda era funcional, especialmente para desktop, então decidi incluí-lo no meu portfólio. **Eu não repeti esse erro no meu próximo projeto**, onde comecei tudo pelo mobile, desde a prototipagem até o desenvolvimento.
-=======
 Porém, tive muita dificuldade em adaptar todo o conteúdo para telas pequenas. Eu tentei, mas não ficou bom. Ficou péssimo. Como resultado, **o projeto acabou com uma responsividade ruim**. Mas, achei que ainda era funcional, especialmente para desktop, então decidi incluí-lo no meu portfólio. **Eu não repeti esse erro no meu próximo projeto(inspiration4)**, onde comecei tudo pelo mobile, desde a prototipagem até o desenvolvimento.
-
 
 ## Como clonar o repositório
  Você precisa ter o [Git](https://git-scm.com/)  instalado na sua máquina
@@ -50,4 +70,4 @@ Porém, tive muita dificuldade em adaptar todo o conteúdo para telas pequenas. 
 ```bash
 git clone https://github.com/rafaelcarlosoficial/memory
 ```
->>>>>>> 1762670947598b5162633f85a50521942193987f
+
