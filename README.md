@@ -36,4 +36,18 @@ Observação: Inicialmente, eu havia criado um arquivo .js para cada tela, ou se
 
 Um grande erro deste projeto foi na fase de prototipagem. Como era a minha primeira vez criando um projeto no Figma, não lembrei de priorizar a experiência móvel. Comecei criando a tela para desktop, mas depois percebi a necessidade de adaptar as imagens, o layout e proporcionar uma boa experiência para o usuário no mobile. Isso envolveu garantir que os botões fossem grandes o suficiente para toques precisos e tornar todo o design responsivo.
 
+<<<<<<< HEAD
 Porém, tive muita dificuldade em adaptar todo o conteúdo para telas pequenas. Eu tentei, mas não ficou bom. Ficou péssimo. Como resultado, **o projeto acabou com uma responsividade ruim**. No entanto, achei que ainda era funcional, especialmente para desktop, então decidi incluí-lo no meu portfólio. **Eu não repeti esse erro no meu próximo projeto**, onde comecei tudo pelo mobile, desde a prototipagem até o desenvolvimento.
+=======
+Porém, tive muita dificuldade em adaptar todo o conteúdo para telas pequenas. Eu tentei, mas não ficou bom. Ficou péssimo. Como resultado, **o projeto acabou com uma responsividade ruim**. Mas, achei que ainda era funcional, especialmente para desktop, então decidi incluí-lo no meu portfólio. **Eu não repeti esse erro no meu próximo projeto(inspiration4)**, onde comecei tudo pelo mobile, desde a prototipagem até o desenvolvimento.
+
+
+## Como clonar o repositório
+ Você precisa ter o [Git](https://git-scm.com/)  instalado na sua máquina
+
+1. Abra seu terminal ou prompt de comando.
+2. Digite o código:
+```bash
+git clone https://github.com/rafaelcarlosoficial/memory
+```
+>>>>>>> 1762670947598b5162633f85a50521942193987f
